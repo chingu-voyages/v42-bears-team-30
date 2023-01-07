@@ -2,6 +2,35 @@
 ### Vision statement:
 - Provide the best room suggestion to our clients who wish to book accommodation with us :bulb:
 
+### Coding standard 
+#### Variable naming tips
+- camelCasing: for variables, attributes, methods, functions
+```bash
+eg: dbConnection, userAdress, ...
+```
+- PascalCase: for class names, interfaces, namespaces
+```bash
+eg: User, Category ...
+```
+- snake_case or SNAKE_CASE: use in scripting languages and constant
+```bash
+eg: no_inspiration, USER_BIRTHDAY, ...
+```
+
+#### Commit tips
+> If you modify front repo
+```bash
+[FRONT] your commit
+#eg:
+[FRONT] add navbar
+```
+> If you modify back repo
+```bash
+[BACK] your commit
+# eg:
+[BACK] migrate database
+```
+
 ### How to contribute
 - Step 1: Clone this project
 ```
@@ -19,6 +48,8 @@ git checkout -b feature/your-branch-name
 cd app-front
 # install dependecies
 npm install
+# launch server
+npm start
 ```
 #### > For BE dev
 ```
@@ -26,4 +57,6 @@ npm install
 cd app-back
 # install dependecies
 npm install
+# launch server
+node server.js
 ```
