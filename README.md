@@ -58,5 +58,5 @@ cd app-back
 # install dependecies
 npm install
 # launch server
-node server.js
+npm run dev
 ```
