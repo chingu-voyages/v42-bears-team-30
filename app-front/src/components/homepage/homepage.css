@@ -1,0 +1,31 @@
+.main-content-homepage {
+    background-image: url('../../assets/images/banners-homepage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 647px;
+    position: relative;
+}
+
+.find-room-container {
+    left: 20%;
+    position: absolute;
+    top: 50%;
+}
+
+.find-room-text {
+    align-items: center;
+    display: flex;
+}
+
+.find-room-text .find-room-title {
+    color: #0FE18B;
+    font-size: 2em;
+    margin: 0 0.5em;
+    text-transform: uppercase;
+}
+
+.find-room-text .find-room-paragraph {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline 2px;
+}
