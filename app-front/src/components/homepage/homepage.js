@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../_partials/navbar/navbar';
+import searchButton from '../../assets/icons/btn-search.png'
 import './homepage.css';
 
 function Homepage() {
+
+    const [showInput, setShowInput] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+
+    const handleClick = () => {
+        setShowInput(true);
+    }
+
+    const handleChange = (event) => {
+        setInputValue(event.target.value);
+    }
+
     return (
         <main className='main-content-homepage'>
             <Navbar />
@@ -12,7 +25,26 @@ function Homepage() {
                     <p className='find-room-paragraph'>Rooms</p>
                 </div>
                 <div className='find-room-forms'>
-                    
+                    <div className='check-in-container'>
+                        <p>Check In</p>
+                        {!showInput && <div class="calendar-text-add" onClick={handleClick}>Add date</div>}
+                        {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
+                    </div>
+                    <div className='check-out-container'>
+                        <p>Check Out</p>
+                        {!showInput && <div class="calendar-text-add" onClick={handleClick}>Add date</div>}
+                        {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
+                    </div>
+                    <div className='guests-container'>
+                        <p>Guests</p>
+                        {!showInput && <div class="calendar-text-add" onClick={handleClick}>Add guests</div>}
+                        {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChange} />}
+                    </div>
+                    <div className='btn-search-container'>
+                        <button className='btn-search'>
+                            <img src={ searchButton } alt='search button' />
+                        </button>
+                    </div>
                 </div>
             </div>
         </main>
