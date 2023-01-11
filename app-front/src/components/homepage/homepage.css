@@ -27,8 +27,13 @@
 .find-room-text .find-room-paragraph {
     color: white;
     font-weight: bold;
-    border-bottom: 1px solid;
-    border-width: 2px;
+}
+
+.find-room-text .find-room-paragraph::after {
+    border-bottom: 3px solid #ffffff;
+    content: '';
+    display: block;
+    width: 32px;
 }
 
 .find-room-forms {
