@@ -1,0 +1,80 @@
+.rooms-available {
+    padding: 20px;
+}
+
+.rooms-available-title h2 {
+   
+    color: #484848;
+    text-align: center;
+    
+}
+
+.rooms-available-title h2::after {
+    border-bottom: 5px solid #0FE18B;
+    content: '';
+    display: block;
+    margin: 5px auto;
+    width: 120px;
+}
+
+.cards-rooms-available {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-room {
+    height: 300px;
+    width: 330px;
+}
+
+.card-room-top, .card-room-top .room-picture {
+    height: 300px;
+    width: 330px;
+}
+
+.card-room-top {
+    position: relative;
+}
+
+.card-room-top .room-picture {
+    position: absolute;
+}
+
+.card-room-top .love-icon {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.room-price {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    position: relative;
+    top: 85%;
+}
+
+.room-title {
+    line-height: 2px;
+}
+
+.room-title h4 {
+    color: #484848;
+}
+
+.room-title p {
+    color: #9A9A9A;
+    font-size: 0.8em;
+}
+
+.pieces, .pieces div {
+    align-items: center;
+    display: flex;
+    opacity: 0.9;
+}
+
+.pieces div span {
+    margin-left: 5px;
+    margin-right: 20px;
+}
