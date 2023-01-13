@@ -1,0 +1,49 @@
+.top-rated-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.top-rated {
+    margin-top: 5em;
+    padding: 20px;
+}
+
+.top-rated-title h2 { 
+    color: #484848;
+    text-align: center;
+}
+
+.top-rated-title h2::after {
+    border-bottom: 5px solid #0FE18B;
+    content: '';
+    display: block;
+    margin: 5px auto;
+    width: 120px;
+}
+
+.top-icons .star-icon {
+    position: absolute;
+    left: 10px;
+    top: 11px;
+}
+
+.star-icon .stars img {
+    margin-right: 0.5em;
+}
+
+.room-details {
+    color: white;
+    display: block;
+    line-height: 0.2em;
+    margin: 0 15px;
+    position: relative;
+    top: 85%;
+}
+
+.room-details .details {
+    color: #0FE18B;
+}
+
+.room-information p {
+    font-size: 0.8em;
+}
