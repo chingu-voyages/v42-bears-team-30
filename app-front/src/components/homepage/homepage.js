@@ -4,6 +4,7 @@ import searchButton from '../../assets/icons/btn-search.png'
 import './homepage.css';
 import Cards from '../cards/cards';
 import TopCards from '../cards/topRatedCards/topRatedCards';
+import Footer from '../_partials/footer/footer';
 
 function Homepage() {
 
@@ -53,6 +54,7 @@ function Homepage() {
             </main>
             <Cards />
             <TopCards />
+            <Footer />
         </div>
     )
 }
