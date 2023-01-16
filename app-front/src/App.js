@@ -10,14 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
     <div className="App">
-      
-        <Routes>
-          <Route  path="/" exact element={<Homepage />} />
-          <Route path='/room-details/:id' exact element={<DetailsPage />} />
-        </Routes>
-      
-      
-      
+      <Routes>
+        <Route  path="/" exact element={<Homepage />} />
+        <Route path='/room-details/:id' exact element={<DetailsPage />} />
+      </Routes>
     </div>
   );
 }

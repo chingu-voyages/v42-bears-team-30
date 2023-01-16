@@ -17,7 +17,12 @@ footer {
 .links-right {
     position: relative;
     right: -5em;
-    top: -0.8em;
+    top: 0.4em;
+}
+
+.links-right div h2 {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .social-networks-icons img {
@@ -26,13 +31,14 @@ footer {
 
 .footer-links div a {
     color: white;
+    cursor: pointer;
     line-height: 2em;
     text-decoration: none;
 }
 
 .button-links a img {
     position: relative;
-    top: 5px;
+    top: -2px;
     right: 5px;
 }
 

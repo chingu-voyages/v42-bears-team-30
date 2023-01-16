@@ -2,8 +2,14 @@
     padding: 20px;
 }
 
+.rooms-available-title {
+    padding: 20px;
+}
+
 .rooms-available-title h2 {
     color: #484848;
+    font-size: 1.5em;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -48,6 +54,11 @@
     top: 5px;
 }
 
+.price h4 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
 .room-price {
     color: white;
     display: flex;
@@ -63,6 +74,9 @@
 
 .room-title h4 {
     color: #484848;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0.5em;
 }
 
 .room-title p {
