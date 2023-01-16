@@ -1,14 +1,15 @@
 /*--------- display flex --------- */
-.navbar, .nav-right ul {
+.navbar-other-pages, .nav-right ul {
     display: flex;
 }
 /* ------------------ */
 
-.navbar {
+.navbar-other-pages {
     align-items: center;
     background-color: #0FE18B;
-    margin-bottom: 2em;
     justify-content: space-around;
+    margin-bottom: 2em;
+    padding: 8px;
     position: fixed;
     top: 0;
     width: 100%;

@@ -1,8 +1,9 @@
 .details-page {
+    font-weight: initial;
     margin-top: -1.2em;
 }
 
-.details {
+.details-other {
     padding: 20px 30px;
 }
 
@@ -41,4 +42,141 @@
 .room-img-5 {
     background-color: #bbb3b3;
     grid-area: 3 / 7 / 5 / 9;
-} 
+    text-align: center;
+}
+
+.room-img-5 p {
+    color: #9A9A9A;
+    font-weight: bold;
+    margin: 30% 25%;
+}
+
+.details-description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-left {
+    width: 600px;
+}
+
+.details-title-left {
+    line-height: 0.5em;
+}
+
+.details-title-left h2,
+.room-description h3,
+.room-description p,
+.offered-details h3,
+.safety-hygiene h3,
+.safety p {
+    color: #484848;
+}
+
+.details-title-left p {
+    color: #9A9A9A;
+    font-size: 0.8em;
+}
+
+.details-pieces {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.details-pieces .piece {
+    align-items: center;
+    background-color: #EFF0F2;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    padding: 25px 20px;
+    width: 100px;
+}
+
+.details-pieces .piece span {
+    margin-right: 0.2em;
+}
+
+.piece img {
+    height: 30px;
+    width: 30px;
+}
+
+.room-description p {
+    font-size: 0.8em;
+}
+
+.offered-details .offered-icons, 
+.offered-icons .offered {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 2em;
+}
+
+.offered img {
+    margin-right: 0.5em;
+}
+
+.safety {
+    align-items: center;
+    display: flex;
+}
+
+.safety img {
+    height: 30px;
+    margin-right: 1em;
+    width: 30px;
+}
+
+.details-right {
+    border-radius: 20px;
+    box-shadow: 5px 10px 15px 10px #d3caca;
+    display: inline-block;
+    height: max-content;
+    padding: 20px;
+    width: 300px;
+}
+
+.details-right h2 {
+    color: #484848;
+    font-size: 1em;
+}
+
+.details-right p {
+    color: #756767;
+    font-size: 1em;
+}
+
+.details-right .btn-reserve {
+    background-color: #0FE18B;
+    border-radius: 40px;
+    color: white;
+    margin-top: 2em;
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-reserve a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.call { 
+    margin-top: 1.5em;
+}
+
+.call a {
+    align-items: center;
+    color: #756767;
+    display: flex;
+    justify-content: right;
+    text-decoration: none;
+}

@@ -17,12 +17,13 @@ import batteryIcon from '../../assets/icons/battery.png';
 import callIcon from '../../assets/icons/call.png';
 
 import './detailspage.css';
+import Footer from '../_partials/footer/footer';
 
 function DetailsPage() {
     return (
         <div className='details-page'>
             <Navbar />
-            <div className='details'>
+            <div className='details-other'>
                 <div className='details-room-images'>
                     <div className='room-img-1'>
                         
@@ -37,7 +38,7 @@ function DetailsPage() {
                         
                     </div>
                     <div className='room-img-5'>
-                        
+                        <p>More photos</p>
                     </div>
                 </div>
                 <div className='details-description'>
@@ -61,13 +62,9 @@ function DetailsPage() {
                             </div>
                             <div className='piece'>
                                 <img src={ bathIcon } />
-                                <p><p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                                Commodi corrupti cupiditate provident distinctio, aspernatur impedit minima, 
-                                ipsam ullam quod amet minus tempore autem quaerat libero blanditiis dolor nihil. Sed, dolor.
-                            </p>
+                                <p>
                                     <span className='piece-number'>2</span>
-                                    Batkitchenhrooms
+                                    Bathrooms
                                 </p>
                             </div>
                             <div className='piece'>
@@ -128,6 +125,7 @@ function DetailsPage() {
                             </div>
                         </div>
                         <div className='safety-hygiene'>
+                            <h3>Safety and Hygiene</h3>
                             <div className='safety'>
                                 <img src={ batteryIcon } />
                                 <p>Daily Cleaning</p>
@@ -144,16 +142,21 @@ function DetailsPage() {
                         <p>Short period: <span>$ 1000</span></p>
                         <p>Medium period: <span>$ 2000</span></p>
                         <p>Long period: <span>$ 2000</span></p>
-                        <a className="btn-reserve" href='javascript:void()'>
-                            Reserve now
-                        </a>
+                        <div className='btn-reserve'>
+                            <a className="btn-reserve" href='javascript:void()'>
+                                Reserve now
+                            </a>
+                        </div>
                         <div className='call'>
-                            <img src={ callIcon } />
-                            Call us
+                            <a href="javascript:void()">
+                                <img src={ callIcon } />
+                                Call us
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
