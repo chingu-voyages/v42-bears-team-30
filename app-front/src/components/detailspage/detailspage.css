@@ -1,0 +1,44 @@
+.details-page {
+    margin-top: -1.2em;
+}
+
+.details {
+    padding: 20px 30px;
+}
+
+.details-room-images {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 450px;
+}
+
+.room-img-1, .room-img-2,
+.room-img-3, .room-img-4,
+.room-img-5 {
+    border-radius: 12px;
+}
+
+
+.room-img-1 {
+    background-color: #d1c6c6;
+    grid-area: 1 / 1 / 5 / 5;
+}
+.room-img-2 {
+    background-color: #a59696;
+    grid-area: 1 / 5 / 3 / 7;
+}
+.room-img-3 {
+    background-color: #756767;
+    grid-area: 1 / 7 / 3 / 9;
+}
+.room-img-4 {
+    background-color: #7e7676; 
+    grid-area: 3 / 5 / 5 / 7;
+}
+.room-img-5 {
+    background-color: #bbb3b3;
+    grid-area: 3 / 7 / 5 / 9;
+} 
