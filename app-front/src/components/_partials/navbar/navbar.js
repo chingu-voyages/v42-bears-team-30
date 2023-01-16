@@ -4,7 +4,7 @@ import chinguLogo from '../../../assets/images/logo-chingu.png';
 
 function Navbar() {
     return (
-        <nav className='navbar'>
+        <nav className='navbar-chingu'>
             <div className='nav-left'>
                 <a class="logo-link" href='javascript:void()'>
                     <img src={ chinguLogo } alt="chingu-logo" />

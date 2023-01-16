@@ -17,7 +17,9 @@
 
 .cards-rooms-available {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+   
 }
 
 .card-room {

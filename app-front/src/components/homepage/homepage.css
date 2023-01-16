@@ -8,9 +8,12 @@
 
 .find-room-container {
     left: 20%;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 30%;
+    max-width: 590px;
 }
+
+
 
 .find-room-text {
     align-items: center;
@@ -71,4 +74,35 @@
 
 .btn-search-container .btn-search:hover, .calendar-text-add:hover {
     opacity: 0.7;
+}
+
+
+@media screen and (max-Width:390px) {
+    .find-room-container {
+
+    
+        left: 0;
+        padding: 0 25px;
+     
+    }
+    .find-room-container .find-room-text .find-room-paragraph{
+        font-size: 11px;
+        margin-top: 6px;
+    }
+   
+    .find-room-container .find-room-forms{
+       padding: auto;
+    }
+    .find-room-container .find-room-forms p, .calendar-text-add{
+        font-size: 11px;
+        margin-right: 17px;
+    }
+    .btn-search-container .btn-search {
+        margin-top: 0;
+        margin-left: 15px;
+    }
+    .btn-search-container .btn-search img {
+        height: 50px;
+        width: 45px;
+    }
 }

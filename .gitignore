@@ -1,3 +1,4 @@
 /app-front/node_modules
 /app-back/node_modules
+/app-back/config.env
 

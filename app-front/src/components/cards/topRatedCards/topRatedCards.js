@@ -18,11 +18,11 @@ function Cards() {
                 <h2>Top Rated Rooms</h2>
             </div>
 
-            <div className='top-rated-cards'>
+            <div className='top-rated-cards row'>
 
-                <div className='top-rated-rooms'>
+                <div className='top-rated-rooms col-lg-3 col-md-3 col-sm-12'>
                     <div className='card-room-top'>
-                        <img className='room-picture' src={ room1 } />
+                        <img className='room-picture' src={ room1 } alt="img-room"/>
                         <div className='top-icons'>
                             <div className='star-icon'>
                                 <div class="stars">
@@ -46,9 +46,9 @@ function Cards() {
                     </div>
                 </div>
 
-                <div className='top-rated-rooms'>
+                <div className='top-rated-rooms col-lg-3 col-md-3 col-sm-12'>
                     <div className='card-room-top'>
-                        <img className='room-picture' src={ room2 } />
+                        <img className='room-picture' src={ room2 } alt="img-room"/>
                         <div className='top-icons'>
                             <div className='star-icon'>
                                 <div class="stars">
@@ -74,9 +74,9 @@ function Cards() {
                     </div>
                 </div>
 
-                <div className='top-rated-rooms'>
+                <div className='top-rated-rooms col-lg-3 col-md-3 col-sm-12'>
                     <div className='card-room-top'>
-                        <img className='room-picture' src={ room3 } />
+                        <img className='room-picture' src={ room3 } alt="img-room"/>
                         <div className='top-icons'>
                             <div className='star-icon'>
                                 <div class="stars">
@@ -100,6 +100,7 @@ function Cards() {
                         </div>
                     </div>
                 </div>
+                
 
             </div>
 
