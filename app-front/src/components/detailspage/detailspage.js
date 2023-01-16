@@ -49,33 +49,33 @@ function DetailsPage() {
                                 <p>101 BT-30 Chingu</p>
                             </div>
                             <div className='details-love'>
-                                <img src={ loveIcon } />
+                                <img src={ loveIcon } alt="img-icon" />
                             </div>
                         </div>
                         <div className='details-pieces'>
                             <div className='piece'>
-                                <img src={ bedIcon } />
+                                <img src={ bedIcon } alt="img-icon" />
                                 <p>
                                     <span className='piece-number'>3</span>
                                     Bedrooms
                                 </p>
                             </div>
                             <div className='piece'>
-                                <img src={ bathIcon } />
+                                <img src={ bathIcon } alt="img-icon" />
                                 <p>
                                     <span className='piece-number'>2</span>
                                     Bathrooms
                                 </p>
                             </div>
                             <div className='piece'>
-                                <img src={ carIcon } /> 
+                                <img src={ carIcon } alt="img-icon" /> 
                                 <p>
                                     <span className='piece-number'>3</span> 
                                     Cars
                                 </p> 
                             </div>
                             <div className='piece'>
-                                <img src={ petIcon } />
+                                <img src={ petIcon } alt="img-icon" />
                                 <p>
                                     <span className='piece-number'>0</span>
                                     Pets Allowed
@@ -99,27 +99,27 @@ function DetailsPage() {
                             <h3>Offered Amenities</h3>
                             <div className='offered-icons'>
                                 <div className='offered'>
-                                    <img src={ kitchenIcon } />
+                                    <img src={ kitchenIcon } alt="img-icon" />
                                     <p>Kitchen</p>
                                 </div>
                                 <div className='offered'>
-                                    <img src={ airIcon } />
+                                    <img src={ airIcon } alt="img-icon" />
                                     <p>Air Conditioner</p>
                                 </div>
                                 <div className='offered'>
-                                    <img src={ washerIcon } />
+                                    <img src={ washerIcon } alt="img-icon" />
                                     <p>Washer</p>
                                 </div>
                                 <div className='offered'>
-                                    <img src={ tvIcon } />
+                                    <img src={ tvIcon } alt="img-icon" />
                                     <p>Television with Netflix</p>
                                 </div>
                                 <div className='offered'>
-                                    <img src={ wifiIcon } />
+                                    <img src={ wifiIcon } alt="img-icon" />
                                     <p>Free Wireless Internet</p>
                                 </div>
                                 <div className='offered'>
-                                    <img src={ balconyIcon } />
+                                    <img src={ balconyIcon } alt="img-icon" />
                                     <p>Balcony or Patio</p>
                                 </div>
                             </div>
@@ -127,11 +127,11 @@ function DetailsPage() {
                         <div className='safety-hygiene'>
                             <h3>Safety and Hygiene</h3>
                             <div className='safety'>
-                                <img src={ batteryIcon } />
+                                <img src={ batteryIcon } alt="img-icon" />
                                 <p>Daily Cleaning</p>
                             </div>
                             <div className='safety'>
-                                <img src={ batteryIcon } />
+                                <img src={ batteryIcon } alt="img-icon" />
                                 <p>Disinfections and Sterilizations</p>
                             </div>
                         </div>
@@ -143,13 +143,13 @@ function DetailsPage() {
                         <p>Medium period: <span>$ 2000</span></p>
                         <p>Long period: <span>$ 2000</span></p>
                         <div className='btn-reserve'>
-                            <a className="btn-reserve" href='javascript:void()'>
+                            <a className="btn-reserve" >
                                 Reserve now
                             </a>
                         </div>
                         <div className='call'>
-                            <a href="javascript:void()">
-                                <img src={ callIcon } />
+                            <a >
+                                <img src={ callIcon } alt="img-icon" />
                                 Call us
                             </a>
                         </div>

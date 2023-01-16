@@ -6,20 +6,20 @@ function Navbar() {
     return (
         <nav className='navbar-other-pages'>
             <div className='nav-left'>
-                <a class="logo-link" href='javascript:void()'>
+                <a className="logo-link" >
                     <img src={ chinguLogo } alt="chingu-logo" />
                 </a>
             </div>
             <div className='nav-right'>
                 <ul className='nav-links'>
                     <li>
-                        <a href='javascript:void()'>Find a Room</a>
+                        <a>Find a Room</a>
                     </li>
                     <li>
-                        <a href='javascript:void()'>Download Mobile app</a>
+                        <a>Download Mobile app</a>
                     </li>
                     <li>
-                        <a className='nav-auth' href='javascript:void()'>Login/Register</a>
+                        <a className='nav-auth'>Login/Register</a>
                     </li>
                 </ul>
             </div>

@@ -25,7 +25,7 @@ function Cards() {
                         <img className='room-picture' src={ room1 } alt="img-room"/>
                         <div className='top-icons'>
                             <div className='star-icon'>
-                                <div class="stars">
+                                <div className="stars">
                                     <img src={ starIcon } alt='star' />
                                     <img src={ starIcon } alt='star' />
                                     <img src={ starIcon } alt='star' />
@@ -51,7 +51,7 @@ function Cards() {
                         <img className='room-picture' src={ room2 } alt="img-room"/>
                         <div className='top-icons'>
                             <div className='star-icon'>
-                                <div class="stars">
+                                <div className="stars">
                                     <img src={ starIcon } alt='star' />
                                     <img src={ starIcon } alt='star' />
                                     <img src={ starIcon } alt='star' />
@@ -79,7 +79,7 @@ function Cards() {
                         <img className='room-picture' src={ room3 } alt="img-room"/>
                         <div className='top-icons'>
                             <div className='star-icon'>
-                                <div class="stars">
+                                <div className="stars">
                                     <img src={ starIcon } alt='star' />
                                     <img src={ starIcon } alt='star' />
                                     <img src={ starIcon } alt='star' />

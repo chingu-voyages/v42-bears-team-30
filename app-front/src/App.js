@@ -1,9 +1,8 @@
 import './App.css';
 import DetailsPage from './components/detailspage/detailspage';
 import Homepage from './components/homepage/homepage';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
-import Cards from './components/cards/cards';
-import TopCards from './components/cards/topRatedCards/topRatedCards';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -11,8 +10,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
     <div className="App">
-      <Homepage />
-      <DetailsPage />
+      
+        <Routes>
+          <Route  path="/" exact element={<Homepage />} />
+          <Route path='/room-details/:id' exact element={<DetailsPage />} />
+        </Routes>
+      
+      
+      
     </div>
   );
 }

@@ -21,7 +21,7 @@ function Cards() {
             </div>
             <div className='cards-rooms-available row'>
                 
-                <div className='card-room col-lg-3 col-md-3 col-sm-12'>
+                <div className='card-room col-lg-4 col-md-4 col-sm-12'>
                     <div className='card-room-container'>
                         <div className='card-room-top'>
                             <img className='room-picture' src={ room1 } />
@@ -64,7 +64,7 @@ function Cards() {
                     </div>
                 </div>
 
-                <div className='card-room col-lg-3 col-md-3 col-sm-12'>
+                <div className='card-room col-lg-4 col-md-4 col-sm-12'>
                     <div className='card-room-container'>
                         <div className='card-room-top'>
                             <img className='room-picture' src={ room2 } />
@@ -107,7 +107,7 @@ function Cards() {
                     </div>
                 </div>
                 
-                <div className='card-room col-lg-3 col-md-3 col-sm-12'>
+                <div className='card-room col-lg-4 col-md-4 col-sm-12'>
                     <div className='card-room-container'>
                         <div className='card-room-top'>
                             <img className='room-picture' src={ room3 } />
@@ -150,7 +150,7 @@ function Cards() {
                     </div>
                 </div>
 
-                <div className='card-room col-lg-3 col-md-3 col-sm-12'>
+                <div className='card-room col-lg-4 col-md-4 col-sm-12'>
                     <div className='card-room-container'>
                         <div className='card-room-top'>
                             <img className='room-picture' src={ room1 } />
@@ -193,7 +193,7 @@ function Cards() {
                     </div>
                 </div>
 
-                <div className='card-room col-lg-3 col-md-3 col-sm-12'>
+                <div className='card-room col-lg-4 col-md-4 col-sm-12'>
                     <div className='card-room-container'>
                         <div className='card-room-top'>
                             <img className='room-picture' src={ room2 } />
@@ -236,7 +236,7 @@ function Cards() {
                     </div>
                 </div>
                 
-                <div className='card-room col-lg-3 col-md-3 col-sm-12'>
+                <div className='card-room col-lg-4 col-md-4 col-sm-12'>
                     <div className='card-room-container'>
                         <div className='card-room-top'>
                             <img className='room-picture' src={ room3 } />

@@ -17,11 +17,11 @@ function Footer() {
                     <img src={ chinguLogo } />
                     <p>Download Chingu-Hotel BT-39 mobile version</p>
                     <div className='button-links'>
-                        <a className='btn-playstore' href='javascript:void()'>
+                        <a className='btn-playstore' >
                         <img src={ playstoreLogo } alt="playstore"/>
                             PlayStore
                         </a>
-                        <a className='btn-applestore' href='javascript:void()'>
+                        <a className='btn-applestore'>
                             <img src={ applestoreLogo } alt="applestore"/>
                             AppleStore
                         </a>
@@ -30,14 +30,14 @@ function Footer() {
                 <div className='links-right'>
                     <div className='company-links'>
                         <h2>Company</h2>
-                        <a href='javascript:void()'>About us</a> <br />
-                        <a href='javascript:void()'>Legal Information</a> <br />
-                        <a href='javascript:void()'>Contact us</a> <br />
-                        <a href='javascript:void()'>Blogs</a>
+                        <a >About us</a> <br />
+                        <a >Legal Information</a> <br />
+                        <a >Contact us</a> <br />
+                        <a >Blogs</a>
                     </div>
                     <div className='help-links'>
                         <h2>Help center</h2>
-                        <a href='javascript:void()'>Find Room</a> <br />
+                        <a>Find Room</a> <br />
                     </div>
                     <div className='contact-links'>
                         <h2>Contact info</h2>
@@ -45,10 +45,10 @@ function Footer() {
                         <p>Email: bt-30@gmail.com</p>
                         <p>Location: 101, chingu</p>
                         <div className='social-networks-icons'>
-                            <img src={ fbLogo } />
-                            <img src={ twitterLogo } />
-                            <img src={ instagramLogo } />
-                            <img src={ linkedinLogo } />
+                            <img src={ fbLogo } alt="img-logo" />
+                            <img src={ twitterLogo } alt="img-logo" />
+                            <img src={ instagramLogo } alt="img-logo" />
+                            <img src={ linkedinLogo } alt="img-logo" />
                         </div>
                     </div>
                 </div>
