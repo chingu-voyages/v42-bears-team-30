@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 const reservationSchema = new Schema({
   bookingDate: {
     type: Date,
-    default: Date.now()
+    default: Date.now(),
   },
   checkInDate: {
     type: Date,
-    required: true
+    required: true,
   },
   checkOutDate: {
-    type: Date
+    type: Date,
   },
   numGuests: {
     type: Number,
