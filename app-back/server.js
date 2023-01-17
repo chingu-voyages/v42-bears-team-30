@@ -21,5 +21,5 @@ app.listen(port, () => {
   // perform a database connection when server starts
  
   
-  console.log(`Server is running on port: ${port}`);
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port: ${port}`);
 });

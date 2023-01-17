@@ -1,1 +1,1 @@
-const mongoose = require('mongodb')
+const mongoose = require('mongoose')
