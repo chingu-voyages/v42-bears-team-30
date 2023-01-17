@@ -1,0 +1,66 @@
+.nav-right .nav-links li .nav-auth {
+    background-color: #0FE18B;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    margin-top: -12px;
+    padding: 12px 20px;
+}
+
+.auth {
+    background-color: #0FE18B;
+    border-radius: 10px;
+    left: 50%; 
+    padding: 20px 30px;
+    position: absolute;
+    top: 15em;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    z-index: 1;
+}
+
+.auth .auth-links {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.auth hr {
+    color: #ffffff;
+}
+
+.auth form input {
+    display: block;
+    border-bottom: 1px solid #0FE18B;
+    height: 40px;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.auth form .btn-login {
+    background-color: #ffffff;
+    color: #0FE18B;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.auth form .btn-login:hover {
+    opacity: 0.7;
+}
+
+.auth form .btn-close {
+    color: white !important;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+}
+
+.auth .btn-close{
+    position: absolute;
+  top: 1%;
+  left:93%
+}

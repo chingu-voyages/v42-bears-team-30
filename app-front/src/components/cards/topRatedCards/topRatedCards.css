@@ -4,12 +4,17 @@
 }
 
 .top-rated {
-    margin-top: 5em;
-    padding: 20px;
+    padding: 20px 0 40px 0;
+}
+
+.top-rated-title {
+    padding-bottom: 20px;
 }
 
 .top-rated-title h2 { 
     color: #484848;
+    font-size: 1.5em;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -29,6 +34,11 @@
 
 .star-icon .stars img {
     margin-right: 0.5em;
+}
+
+.details h4 {
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .room-details {

@@ -13,8 +13,6 @@
     max-width: 590px;
 }
 
-
-
 .find-room-text {
     align-items: center;
     display: flex;
@@ -22,7 +20,8 @@
 
 .find-room-text .find-room-title {
     color: #0FE18B;
-    font-size: 2em;
+    font-size: 2.2em;
+    font-weight: bold;
     margin: 0 0.5em;
     text-transform: uppercase;
 }
@@ -30,6 +29,7 @@
 .find-room-text .find-room-paragraph {
     color: white;
     font-weight: bold;
+    margin-top: 16px;
 }
 
 .find-room-text .find-room-paragraph::after {
@@ -44,9 +44,11 @@
     background-color: #FFFFFF;
     border-radius: 50px;
     font-size: 1em;
+    font-weight: bold;
     display: flex;
-    padding: 16px 30px;
+    padding: 5px 60px;
     padding-bottom: 18px;
+    width: 675px;
 }
 
 .find-room-forms div input {
@@ -69,21 +71,22 @@
 .calendar-text-add {
     color: #0FE18B;
     cursor: pointer;
-    margin-right: 5em;
+    margin-right: 4em;
 }
 
 .btn-search-container .btn-search:hover, .calendar-text-add:hover {
     opacity: 0.7;
 }
 
+.rooms-available-title {
+    padding: 20px 0;
+}
+
 
 @media screen and (max-Width:390px) {
     .find-room-container {
-
-    
         left: 0;
         padding: 0 25px;
-     
     }
     .find-room-container .find-room-text .find-room-paragraph{
         font-size: 11px;

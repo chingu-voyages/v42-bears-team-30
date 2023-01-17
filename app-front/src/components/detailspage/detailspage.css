@@ -4,7 +4,7 @@
 }
 
 .details-other {
-    padding: 20px 30px;
+    padding: 110px 30px 20px;
 }
 
 .details-room-images {
@@ -70,6 +70,12 @@
     line-height: 0.5em;
 }
 
+.details-title-left h2, .room-description h3,
+.offered-details h3, .safety-hygiene h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 .details-title-left h2,
 .room-description h3,
 .room-description p,
@@ -87,6 +93,7 @@
 .details-pieces {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -97,7 +104,7 @@
     flex-direction: column;
     font-size: 0.8em;
     padding: 25px 20px;
-    width: 100px;
+    width: 130px;
 }
 
 .details-pieces .piece span {
@@ -107,6 +114,10 @@
 .piece img {
     height: 30px;
     width: 30px;
+}
+
+.room-description, .offered-details {
+    margin-bottom: 40px;
 }
 
 .room-description p {
@@ -123,6 +134,7 @@
 
 .offered img {
     margin-right: 0.5em;
+    margin-top: -1em;
 }
 
 .safety {
@@ -133,6 +145,7 @@
 .safety img {
     height: 30px;
     margin-right: 1em;
+    margin-top: -1em;
     width: 30px;
 }
 
