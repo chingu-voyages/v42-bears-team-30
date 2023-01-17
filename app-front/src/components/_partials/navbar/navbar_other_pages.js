@@ -1,6 +1,7 @@
 import React from 'react';
 import './navbar_other_pages.css';
 import chinguLogo from '../../../assets/images/logo-chingu.png';
+import Auth from '../../auth/auth';
 
 function Navbar() {
     return (
@@ -19,7 +20,7 @@ function Navbar() {
                         <a>Download Mobile app</a>
                     </li>
                     <li>
-                        <a className='nav-auth'>Login/Register</a>
+                        <Auth />
                     </li>
                 </ul>
             </div>

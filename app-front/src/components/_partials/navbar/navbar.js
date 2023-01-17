@@ -1,4 +1,7 @@
 import React from 'react';
+
+import Auth from '../../auth/auth';
+
 import './navbar.css';
 import chinguLogo from '../../../assets/images/logo-chingu.png';
 
@@ -19,7 +22,7 @@ function Navbar() {
                         <a>Download Mobile app</a>
                     </li>
                     <li>
-                        <a className='nav-auth' >Login/Register</a>
+                        <Auth />
                     </li>
                 </ul>
             </div>

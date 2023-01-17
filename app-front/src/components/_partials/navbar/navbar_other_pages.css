@@ -25,14 +25,6 @@
     text-decoration: none;
 }
 
-.nav-right ul li .nav-auth {
-    background-color: #0FE18B;
-    border-radius: 20px;
-    color: white;
-    font-weight: bold;
-    padding: 12px 20px;
-}
-
 /* Link hover */
 .nav-right ul li a:hover {
     text-decoration: underline 2px;

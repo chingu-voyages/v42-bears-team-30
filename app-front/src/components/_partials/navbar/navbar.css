@@ -22,14 +22,6 @@
     text-decoration: none;
 }
 
-.nav-right .nav-links li .nav-auth {
-    background-color: #0FE18B;
-    border-radius: 20px;
-    color: white;
-    font-weight: bold;
-    padding: 12px 20px;
-}
-
 .nav-right .nav-links {
     margin-top: 20px;
 }

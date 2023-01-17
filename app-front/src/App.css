@@ -2,4 +2,5 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   margin: 0;
+  overflow-x: hidden;
 }
