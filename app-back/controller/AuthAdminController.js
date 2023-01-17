@@ -7,5 +7,17 @@ const Login = (req,res) => {
 
 }
 
+const Register = (req,res) => {
+    res.render('register',{
+        layout: 'register',
+    })
 
-module.exports = {Login }
+}
+const logUser = (req,res) => {
+
+
+}
+
+
+
+module.exports = {Login ,Register,logUser}
