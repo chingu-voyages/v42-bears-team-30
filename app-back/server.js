@@ -1,25 +1,37 @@
 const express = require("express");
-const authClientRoute = require('./routes/authClient')
+const authClientRoute = require('./routes/authClient');
+const roomRoute = require('./routes/room')
+const authAdmin = require('./routes/authAdmin')
 const bodyParser = require('body-parser')
 const connectDB = require('./config/db')
-const app = express();
+const morgan = require('morgan')
 const cors = require("cors");
+const {engine} = require('express-handlebars');
 
+
+//load config
 require("dotenv").config({ path: "./config/config.env" });
 
-const port = process.env.PORT || 5000;
+const app = express();
+
+if(process.env.NODE_ENV === 'development'){
+  app.use(morgan('dev'))
+}
+
+const port = process.env.PORT || 3000;
 connectDB()
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-//app.use("/",require("./routes/record"));
+app.use(express.static(__dirname + '/public'));
+//handlebars config
+app.engine('.hbs', engine({defaultLayout : 'main',extname: '.hbs'}));
+app.set('view engine', '.hbs');
+app.set('views', './views');
 
+app.use('/auth',authAdmin)
+app.use('/room',roomRoute);
 
-
- 
 app.listen(port, () => {
-  // perform a database connection when server starts
- 
-  
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port: ${port}`);
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port:  ${port}`);
 });
