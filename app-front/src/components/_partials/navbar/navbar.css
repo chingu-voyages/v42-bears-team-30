@@ -51,6 +51,9 @@
 
 /* RESPONSIVE */
 @media (width <= 600px) {
+    .navbar-chingu {
+        position: absolute;
+    }
     /* MENU */
     .nav-right .nav-links li {
         display: none;
