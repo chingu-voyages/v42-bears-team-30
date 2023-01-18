@@ -1,5 +1,6 @@
 const AdminUser = require('../model/AdminUser')
 const {validationResult} = require('express-validator');
+
 const bcrypt = require('bcrypt')
 const Login = (req,res) => {
     res.render('login',{
@@ -20,16 +21,23 @@ const logUser = (req,res) => {
 
 }
 const registerUser = async (req,res) => {
-    const { username ,email,password,confirmPassword} = req.body;
+    const { username,password,email,confirmPassword} = req.body;
     const saltRound = 10;
     try {
         let errors = validationResult(req)
         console.log("req.body",req.body)
-
+        
         if(!errors.isEmpty()){
             console.log(errors.array());
-            let resultError = errors.array().map(error =>  error)
-            return res.json({ resultError})
+        
+            res.render('register',{
+                layout: 'register', 
+                errors: errors.array(),
+                username,
+                email,
+                password,
+                confirmPassword
+            })
 
         }else{
             bcrypt.genSalt(saltRound,(err,salt) => {
