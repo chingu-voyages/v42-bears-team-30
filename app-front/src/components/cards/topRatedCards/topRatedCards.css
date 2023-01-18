@@ -1,10 +1,15 @@
 .top-rated-cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
+.top-rated-rooms {
+    margin-bottom: 2em;
+}
+
 .top-rated {
-    padding: 20px 0 40px 0;
+    padding: 0 130px;
 }
 
 .top-rated-title {
@@ -56,6 +61,15 @@
 
 .room-information p {
     font-size: 0.8em;
+}
+
+@media (width <= 700px) {
+    .top-rated-cards {
+        flex-wrap: wrap;
+    }
+    .top-rated-rooms {
+        margin-bottom: 2em;
+    }
 }
 
 

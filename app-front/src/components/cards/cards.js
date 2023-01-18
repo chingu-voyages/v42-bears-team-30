@@ -20,10 +20,10 @@ function Cards() {
             <div className='rooms-available-title'>
                 <h2>Our room available</h2>
             </div>
-            <div className='cards-rooms-available row'>
+            <div className='cards-rooms-available'>
                 {
                     cards.map(card =>(
-                        <div className='card-room col-lg-4 col-md-4 col-sm-12' key={card}>
+                        <div className='card-room' key={card}>
                             <div className='card-room-container'>
                                 <div className='card-room-top' onClick={navigate(`/room-details/${card}`)}>
                                     <img className='room-picture' src={ room3 } alt="img-room"/>
