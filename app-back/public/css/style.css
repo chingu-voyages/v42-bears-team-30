@@ -2,7 +2,7 @@ p{
     margin: 10px 0 !important;
 }
 
-/* login form */
+/* login and register form */
 .login-container {
     width: 400px;
     margin-top: 50px ;
@@ -11,6 +11,22 @@ p{
 .login-container .auth-form-container{
     margin-top: 50px;
 }
+
 .login-container .auth-form-container .input-field{
     padding-bottom : 10px;
  }
+
+ .auth-form-container .alert .card-content {
+
+    font-size: 1.1em;
+    font-weight: bold;
+
+		
+		
+}	
+.auth-form-container .alert .material-icons {
+	font-size: 1.5em;
+	
+	
+}	
+	
