@@ -18,8 +18,9 @@ const reservationSchema = new Schema({
     default: 1,
   },
   clientId: {
-    type: Number,
-    required: true,
+    type: mongoose.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
 });
 
