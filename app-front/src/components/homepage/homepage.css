@@ -82,30 +82,17 @@
     padding: 20px 0;
 }
 
-
-@media screen and (max-Width:390px) {
-    .find-room-container {
-        left: 0;
-        padding: 0 25px;
+/* RESPONSIVE */
+@media (width <= 750px) {
+    .find-room-forms {
+        display: block;
+        text-align: center;
+        width: 250px;
     }
-    .find-room-container .find-room-text .find-room-paragraph{
-        font-size: 11px;
-        margin-top: 6px;
+    .find-room-forms div p {
+        margin-bottom: 0;
     }
-   
-    .find-room-container .find-room-forms{
-       padding: auto;
-    }
-    .find-room-container .find-room-forms p, .calendar-text-add{
-        font-size: 11px;
-        margin-right: 17px;
-    }
-    .btn-search-container .btn-search {
-        margin-top: 0;
-        margin-left: 15px;
-    }
-    .btn-search-container .btn-search img {
-        height: 50px;
-        width: 45px;
+    .calendar-text-add {
+        margin-right: 0;
     }
 }

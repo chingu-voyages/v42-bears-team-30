@@ -38,3 +38,53 @@
     text-decoration: none;
 }
 /* ------------------ */
+/* Hamburger menu */
+.nav-right .nav-links .menu-hamburger {
+    display: none;
+}
+
+.nav-right .nav-links .menu-hamburger a img {
+    height: 30px;
+    margin-top: 6px;
+    width: 30px;
+}
+
+/* RESPONSIVE */
+@media (width <= 600px) {
+    .navbar-chingu {
+        position: absolute;
+    }
+    /* MENU */
+    .nav-right .nav-links li {
+        display: none;
+    }
+    .nav-right .nav-links .menu-hamburger {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .responsive {
+        background-color: #0FE18B;
+        position: absolute;
+        margin-right: -11em;
+        padding: 0 20px;
+        top: 0;
+    }
+    .responsive .nav-links {
+        padding: 0;
+    }
+    .responsive .nav-links li a {
+        margin-right: 0 !important;
+    }
+    .responsive .nav-links,
+    .responsive .nav-links li {
+        display: block;
+        float: none;
+        text-align: left;
+    }
+    .responsive .nav-links div .nav-auth {
+        background-color: transparent;
+        padding: 0;
+    }
+}

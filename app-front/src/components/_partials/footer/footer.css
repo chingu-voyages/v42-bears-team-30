@@ -8,6 +8,7 @@ footer {
 .footer-links, .button-links, 
 .links-right, .copyright {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .links-left, .links-right div {
@@ -58,4 +59,14 @@ hr {
 
 .copyright {
     justify-content: space-between;
+}
+
+@media (width <= 800px) {
+    .footer-links {
+        display: block;
+    }
+    .links-right {
+        flex-wrap: wrap;
+        margin-left: -75px;
+    }
 }

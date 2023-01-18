@@ -53,12 +53,14 @@
 
 .details-description {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .details-title {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -92,6 +94,7 @@
 
 .details-pieces {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 40px;
     text-align: center;
