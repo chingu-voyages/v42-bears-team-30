@@ -9,6 +9,7 @@ const Register = () => {
     const handleSubmit = event => {
         event.preventDefault();
         // Perform authentication here using the email and password stored in state
+        
     };
     return (
         <>

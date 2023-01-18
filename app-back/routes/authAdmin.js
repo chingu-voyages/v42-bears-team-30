@@ -1,5 +1,5 @@
 const express = require('express');
-const {Login,Register,logUser} = require('../controller/AuthAdminController')
+const {Login,Register,logUser,registerUser} = require('../controller/AuthAdminController')
 
 const router = express.Router();
 
@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.get('/login',Login)
 router.get('/register',Register)
-router.post('/login',logUser)
+router.post('/register',registerUser)
 
 module.exports = router;

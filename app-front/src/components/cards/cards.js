@@ -18,7 +18,7 @@ function Cards() {
     return (
         <div className='rooms-available container'>
             <div className='rooms-available-title'>
-                <h2>Our room available</h2>
+                <h2>Our room availables</h2>
             </div>
             <div className='cards-rooms-available row'>
                 {
