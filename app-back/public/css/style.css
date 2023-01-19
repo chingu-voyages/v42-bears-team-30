@@ -15,18 +15,38 @@ p{
 .login-container .auth-form-container .input-field{
     padding-bottom : 10px;
  }
-
+.login-container .card .card-content .err-msg{
+    
+    padding: 10px 15px;
+    background-color: rgba(224, 125, 125, 0.616);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: rgb(44, 41, 41);
+    box-shadow: 0px 6px 12px rgba(0, 0,0, 0.2);
+}
+.login-container .card .card-content .err-msg span{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 0;
+    
+}
+.login-container .card .card-content .err-msg{
+    transition: 0.4s;
+}
+.login-container .card .card-content .err-msg .button{
+    padding-top: 10px;
+    cursor: pointer;
+  
+}
  .auth-form-container .alert .card-content {
 
     font-size: 1.1em;
     font-weight: bold;
 
-		
-		
+			
 }	
 .auth-form-container .alert .material-icons {
 	font-size: 1.5em;
-	
 	
 }	
 	

@@ -1,16 +1,15 @@
 module.exports = {
-    ensureAuth:  (req,res,next) => {
+    isLoggedIn:  (req,res,next) => {
         if(req.isAuthenticated()){
             return next()
-        }else{
-            res.redirect('/')
         }
+        req.flash('error_message', 'Please log in to access the requested page');
+        res.redirect('/auth/login')
     },
-    ensureGuest : (req,res,next) => {
-        if(req.isAuthenticated()){
-            res.redirect('/room')
-        }else{
+    isLoggedOut : (req,res,next) => {
+        if(!req.isAuthenticated()){
             return next()
         }
-    },
+        res.redirect('/room')
+    }
 }

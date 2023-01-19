@@ -1,8 +1,18 @@
 <h4>Register</h4>
+
+{{#each errors }}
+   
+    <div class="err-msg row" id="error-msg">
+        <span class="col s11">{{msg}}</span>
+        <div id="btn-alert-close" class="button col s1">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+{{/each}}
+
+
 <div class="container  auth-form-container">
-    {{#each errors }}
-        <p class="red">{{msg}}</p>
-    {{/each}}
+
     <form action="/auth/register" method="post">
     <div class="input-field col s6">
         <input 

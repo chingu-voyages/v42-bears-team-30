@@ -1,0 +1,12 @@
+
+{{#if error_msg != ''}}
+    <p class="red">{{error_msg}}</p>
+{{/if}}
+
+{{#each errors }}
+    <p class="red">{{msg}}</p>
+{{/each}}
+
+{{#if error != ''}}
+    <p class="red">{{error}}</p>
+{{/if}}
