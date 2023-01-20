@@ -37,17 +37,6 @@ const logUser =  (req, res, next) => {
 const registerUser = async (req,res) => {
     const { username,password,email,confirmPassword} = req.body;
     const saltRound = 10;
-
-    // if(username ==='' || password ===''|| email === ''){
-    //     const messages = req.flash('message', 'empty fields');
-    //     console.log("messsage",messages)
-    //     res.render('register',{
-    //         layout: 'register',
-    //         message: req.flash('message')
-    //     }
-
-    //     )
-    // }
     
     try {
         let errors = validationResult(req)
@@ -92,12 +81,16 @@ const registerUser = async (req,res) => {
 }
 
 const logoutUser =  (req, res,next) => {
+
     req.logout((err) => {
         if (err) return next(err); 
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
         req.flash('success_msg', 'You are logged out');
+
         res.redirect('/auth/login');
       });
-    
+  
+    console.log("user: ",req.user)
 }
 
 

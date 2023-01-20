@@ -1,7 +1,8 @@
 const express = require("express");
-const authClientRoute = require('./routes/authClient');
-const roomRoute = require('./routes/room')
-const authAdmin = require('./routes/authAdmin')
+const apiRoute = require('./routes/apiRoute')
+const roomRoute = require('./routes/roomRoute')
+const userClientRoute = require('./routes/userclientRoute')
+const authAdmin = require('./routes/authAdminRoute')
 const bodyParser = require('body-parser')
 const connectDB = require('./config/db')
 const morgan = require('morgan')
@@ -25,6 +26,8 @@ if(process.env.NODE_ENV === 'development'){
 
 const port = process.env.PORT || 3000;
 connectDB()
+
+//cors
 app.use(cors());
 
 //parse request to body-parser
@@ -36,7 +39,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: process.env.SECRET_SESSION,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 60 * 60 * 1000 }
 }))
 
 // Passport middleware
@@ -46,22 +50,10 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
-//Global variables
-// app.use((err,request, response, next) => {
-  
-//   if (err.name === 'UnauthorizedError') {
-//     var messages = req.flash('error');
-//     res.status(401);
-//     res.json({ message: messages });
-//   }
-
-
-//   next();
-// });
 
 //style (the css and js that we use)
 app.use(express.static(__dirname + '/public'));
-//handlebars config
+//handlebars config 
 app.engine('.hbs', engine({defaultLayout : 'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');
@@ -71,7 +63,8 @@ app.set('views', './views');
 //the route
 app.use('/auth',authAdmin)
 app.use('/room',roomRoute);
-
+app.use('/client',userClientRoute)
+app.use('/api',apiRoute);
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port:  ${port}`);
 });

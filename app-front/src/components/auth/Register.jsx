@@ -1,12 +1,20 @@
 import React,{useState} from 'react'
 import { Formik } from "formik";
 import * as Yup from "yup";
+import axios from 'axios'
+import {registerUserRoute} from '../../utils/ApiRoute'
 const Login = () => {
 
     const schema = Yup.object().shape({
+        username: Yup.string()
+            .required("Email is a required field")
+            .min(4, "Username must be at least 4 characters"),
         email: Yup.string()
             .required("Email is a required field")
             .email("Invalid email format"),
+        phoneNumber: Yup.string()
+            .required("Phone number is required")
+            .min(10, "Number must be at least 10 characters"),
         password: Yup.string()
             .required("Password is a required field")
             .min(8, "Password must be at least 8 characters"),
@@ -17,14 +25,30 @@ const Login = () => {
 
     });
 
+    const handleSubmit = async (values,actions) => {
+        try {
+            const {data} = await axios.post(registerUserRoute,values)
+            console.log("data",data);
+            actions.setStatus({
+                message: data.message,
+                password: data.message,
+            })
+            alert(data.message)
+        } catch (error) {
+            if(error) throw error
+        }
+        
+            
+            
+
+    }
+
     return (
         <>
             <Formik 
                 validationSchema={schema}
-                initialValues={{ email: "", password: "" ,confirmPassword: ""}}
-                onSubmit={(values) => { 
-                    alert(JSON.stringify(values))
-                }}
+                initialValues={{ username:"",email: "",phoneNumber: "", password: "" ,confirmPassword: ""}}
+                onSubmit={(values,actions) =>handleSubmit(values,actions)}
                 
             >{(
                 {
@@ -34,28 +58,63 @@ const Login = () => {
                     handleChange,
                     handleBlur,
                     handleSubmit,
+                  
     
                 }
             ) => (
                 <form onSubmit={handleSubmit}>
+                    <div className="input-from">
 
-                <div className="input-from">
-                    <input
-                        className='form-control'
-                        type="email"
-                        name='email'
-                        placeholder="Email"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email}
-                        autoComplete='off'
-                    />
-                    
-                    <span className="error-info-input">
-                        {errors.email && touched.email && errors.email}
-                    </span>
+                        <input
+                            className='form-control'
+                            type="text"
+                            name='username'
+                            placeholder="Username"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.username}
+                            autoComplete='off'
+                        />
+                        <span className="error-info-input">
+                            {errors.username && touched.username && errors.username}
+                        </span>
+                    </div>
 
-                </div>
+                    <div className="input-from">
+
+                        <input
+                            className='form-control'
+                            type="text"
+                            name='phoneNumber'
+                            placeholder="Phone Number"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.phoneNumber}
+                            autoComplete='off'
+                        />
+                        <span className="error-info-input">
+                            {errors.phoneNumber && touched.phoneNumber && errors.phoneNumber}<br/>
+                            
+                        </span>
+                    </div>
+
+                    <div className="input-from">
+                        <input
+                            className='form-control'
+                            type="email"
+                            name='email'
+                            placeholder="Email"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                            autoComplete='off'
+                        />
+                        
+                        <span className="error-info-input">
+                            {errors.email && touched.email && errors.email}
+                        </span>
+
+                    </div>
                     
                     <div className="input-from">
 
