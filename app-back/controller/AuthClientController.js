@@ -28,7 +28,7 @@ const registerUserClient = (req,res) => {
                     clientUser
                         .save()
                         .then(() => {
-                            return res.json({status: '200',message: "ajout avec success"})
+                            return res.json({status: '200',message: "add user successfully"})
                         })
                         .catch(err => res.json({status: '500',message:err}))
                 })
