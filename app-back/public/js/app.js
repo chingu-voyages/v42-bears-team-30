@@ -4,3 +4,5 @@ btnClose.addEventListener('click',(e) => {
     e.preventDefault();
     errorMessageAlert.remove();
 })
+
+
