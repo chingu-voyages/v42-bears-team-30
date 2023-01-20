@@ -10,7 +10,36 @@ const getAllUserClient = (req,res) => {
 
 }
 const loginUserClient = (req,res) => {
-    console.log('user',req.body)
+
+    
+    const {email,password} =req.body;
+    try {
+          //Match user
+        ClientUser.findOne({email: email},(err,user) => {
+
+            if(err) res.json({status: '500',message:err})
+
+            //if user is not found
+            if(!user) return res.json({status: '404',message: 'Incorrect email'})
+            bcrypt.compare(password,user.password, (err,isMatch) =>{
+                
+                if (err) throw err;
+                //if the password is not match
+                if(isMatch === false) return res.json({status: '404',message:'Incorrect password'});
+
+                ///crate a jwt token here
+
+
+                //return into the client side user
+                return res.json({status:'200',user:user.email,message:'login sucessfuly'});
+            })
+        })
+    } catch (error) {
+        throw new Error(error);
+        
+    }
+    
+    
 }
 
 const registerUserClient = (req,res) => {

@@ -25,10 +25,14 @@ const Login = () => {
 
     });
 
-    const handleSubmit = async (values) => {
+    const handleSubmit = async (values,actions) => {
         try {
-            const {data,satus} = await axios.post(registerUserRoute,values)
+            const {data} = await axios.post(registerUserRoute,values)
             console.log("data",data);
+            actions.setStatus({
+                message: data.message,
+                password: data.message,
+            })
             alert(data.message)
         } catch (error) {
             if(error) throw error
@@ -44,7 +48,7 @@ const Login = () => {
             <Formik 
                 validationSchema={schema}
                 initialValues={{ username:"",email: "",phoneNumber: "", password: "" ,confirmPassword: ""}}
-                onSubmit={(values) =>handleSubmit(values)}
+                onSubmit={(values,actions) =>handleSubmit(values,actions)}
                 
             >{(
                 {
@@ -54,6 +58,7 @@ const Login = () => {
                     handleChange,
                     handleBlur,
                     handleSubmit,
+                  
     
                 }
             ) => (
@@ -88,7 +93,8 @@ const Login = () => {
                             autoComplete='off'
                         />
                         <span className="error-info-input">
-                            {errors.phoneNumber && touched.phoneNumber && errors.phoneNumber}
+                            {errors.phoneNumber && touched.phoneNumber && errors.phoneNumber}<br/>
+                            
                         </span>
                     </div>
 
