@@ -1,75 +1,87 @@
 const ClientUser = require('../model/ClientUser');
-const bcrypt = require('bcrypt')
-const getAllUserClient = (req,res) => {
-    console.log("sesion",req.session.passport);
-    res.render('userClient',{
-        user: req.user.username,
-        sessionId: req.sessionID,
-        cookiesAge: req.session.cookie.maxAge
-    })
+require('dotenv').config('../config/config.env');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { create } = require('connect-mongo');
+const getAllUserClient = (req, res) => {
+  console.log('sesion', req.session.passport);
+  res.render('userClient', {
+    user: req.user.username,
+    sessionId: req.sessionID,
+    cookiesAge: req.session.cookie.maxAge,
+  });
+};
+const loginUserClient = (req, res) => {
+  const { email, password } = req.body;
+  try {
+    //Match user
+    ClientUser.findOne({ email: email }, (err, user) => {
+      if (err) res.json({ status: '500', message: err });
 
-}
-const loginUserClient = (req,res) => {
+      //if user is not found
+      if (!user) return res.json({ status: '404', message: 'Incorrect email' });
+      bcrypt.compare(password, user.password, (err, isMatch) => {
+        if (err) throw err;
+        //if the password is not match
+        if (isMatch === false)
+          return res.json({ status: '404', message: 'Incorrect password' });
 
-    
-    const {email,password} =req.body;
-    try {
-          //Match user
-        ClientUser.findOne({email: email},(err,user) => {
+        ///crate a jwt token here
 
-            if(err) res.json({status: '500',message:err})
+        //return into the client side user
+        return res.json({
+          status: '200',
+          user: user.email,
+          message: 'login sucessfuly',
+          token: createToken(user.id),
+        });
+      });
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
-            //if user is not found
-            if(!user) return res.json({status: '404',message: 'Incorrect email'})
-            bcrypt.compare(password,user.password, (err,isMatch) =>{
-                
-                if (err) throw err;
-                //if the password is not match
-                if(isMatch === false) return res.json({status: '404',message:'Incorrect password'});
-
-                ///crate a jwt token here
-
-
-                //return into the client side user
-                return res.json({status:'200',user:user.email,message:'login sucessfuly'});
+const registerUserClient = (req, res) => {
+  const { username, email, phoneNumber, password } = req.body;
+  const saltRound = 10;
+  try {
+    ClientUser.findOne({ email: email }, (err, user) => {
+      if (err) return res.json({ staus: '500', message: 'An error occured' });
+      if (user)
+        return res.json({ staus: '400', message: 'Email already existed' });
+      bcrypt.genSalt(saltRound, (err, salt) => {
+        if (err) throw err;
+        bcrypt.hash(password, salt, (errorHash, hash) => {
+          if (errorHash) throw errorHash;
+          const clientUser = new ClientUser({
+            username: username,
+            email: email,
+            phoneNumber: phoneNumber,
+            password: hash,
+            token: createToken(this.id),
+          });
+          clientUser
+            .save()
+            .then(() => {
+              return res.json({
+                status: '200',
+                message: 'add user successfully',
+              });
             })
-        })
-    } catch (error) {
-        throw new Error(error);
-        
-    }
-    
-    
+            .catch((err) => res.json({ status: '500', message: err }));
+        });
+      });
+    });
+  } catch (error) {
+    return res.json({ status: '500', message: error.message });
+  }
+};
+
+// Generate JWT token
+const createToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_KEY, {
+    expiresIn: '30d',
+  });
 }
-
-const registerUserClient = (req,res) => {
-    const {username,email,phoneNumber,password} =req.body;
-    const saltRound = 10;
-    try{
-        ClientUser.findOne({email: email},(err,user) => {
-            if(err) return res.json({staus: '500',message: "An error occured"});
-            if(user) return res.json({staus: '400',message: "Email already existed"});
-            bcrypt.genSalt(saltRound,(err,salt) => {
-                if(err) throw err;
-                bcrypt.hash(password,salt,(errorHash,hash) =>{
-                    if(errorHash) throw errorHash;
-                    const clientUser = new ClientUser({ username: username,email:email,phoneNumber:phoneNumber,password:hash});
-                    clientUser
-                        .save()
-                        .then(() => {
-                            return res.json({status: '200',message: "add user successfully"})
-                        })
-                        .catch(err => res.json({status: '500',message:err}))
-                })
-                
-            })
-
-        })
-
-    }catch(error){
-        return res.json({status: "500",message: error.message})
-    }
-    
-
-}
-module.exports = {loginUserClient,registerUserClient,getAllUserClient}
+module.exports = { loginUserClient, registerUserClient, getAllUserClient };
