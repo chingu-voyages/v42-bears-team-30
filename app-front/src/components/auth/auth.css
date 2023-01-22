@@ -9,21 +9,27 @@
 }
 
 .auth {
-    background-color: #0FE18B;
+    background-color: white;
     border-radius: 10px;
+    box-shadow: 0px 0px 0px 5px #0FE18B;
     left: 50%; 
     padding: 20px 30px;
     position: absolute;
-    top: 15em;
+    top: 18em;
     transform: translate(-50%, -50%);
     width: 350px;
     z-index: 1;
 }
 
-.auth .auth-links {
-    color: #ffffff;
-    font-weight: bold;
+.auth .auth-links a {
+    color: #0FE18B !important;
     margin-bottom: 1em;
+}
+
+.auth form div input, .auth form div input:focus {
+    border: none;
+    border-bottom: 1px solid #0FE18B;
+    color: #636d69;
 }
 
 .auth hr {
@@ -31,19 +37,19 @@
 }
 
 .auth form input {
-    display: block;
+    border: none;
     border-bottom: 1px solid #0FE18B;
+    display: block;
     height: 40px;
-    
     width: 100%;
 }
 .auth form .input-from{
     margin-bottom: 2em;
 }
 .auth form .btn-login {
-    background-color: #ffffff;
-    color: #0FE18B;
-    font-weight: bold;
+    background-color: #0FE18B;
+    color: #ffffff;
+   
     border: none;
     border-radius: 20px;
     padding: 12px 20px;
@@ -63,8 +69,8 @@
 
 .auth .btn-close{
     position: absolute;
-  top: 1%;
-  left:93%
+    top: 1%;
+    left:93%
 }
 span{
     margin-top: 0;
