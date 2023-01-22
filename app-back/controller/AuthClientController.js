@@ -2,14 +2,24 @@ const ClientUser = require('../model/ClientUser');
 require('dotenv').config('../config/config.env');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { create } = require('connect-mongo');
+//const { create } = require('connect-mongo');
+
+//const {ObjectId}= require("mongodb");
+
 const getAllUserClient = (req, res) => {
-  console.log('sesion', req.session.passport);
-  res.render('userClient', {
-    user: req.user.username,
-    sessionId: req.sessionID,
-    cookiesAge: req.session.cookie.maxAge,
-  });
+  ClientUser.find({}).select('-password -token -_id').exec((err,data) =>{
+    console.log('data',data)
+    if(err) throw new Error(err)
+    res.render('userClient', {
+      
+      test:'test ito',
+      data: data,
+      user: req.user.username,
+      sessionId: req.sessionID,
+      cookiesAge: req.session.cookie.maxAge,
+    });
+  })
+  
 };
 const loginUserClient = (req, res) => {
   const { email, password } = req.body;

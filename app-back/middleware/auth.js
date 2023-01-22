@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const User = require('../model/ClientUser');
+
+
 const protection = asyncHandler(async (req, res, next) => {
   let token;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
@@ -22,8 +24,8 @@ const protection = asyncHandler(async (req, res, next) => {
     throw new Error('Not authorized, no token');
   }
 });
-module.exports = {
-  isLoggedIn: (req, res, next) => {
+
+const isLoggedIn = (req, res, next) => {
     console.log("is logged in", req.user)
     if (req.isAuthenticated()) {
       return next();
@@ -32,12 +34,17 @@ module.exports = {
     res.redirect('/auth/login');
 
 
-  },
-  isLoggedOut: (req, res, next) => {
+  }
+
+  const isLoggedOut = (req, res, next) => {
     if (!req.isAuthenticated()) {
       return next()
     }
     res.redirect('/room')
-  },
+  }
+
+module.exports = {
+  isLoggedIn,
+  isLoggedOut,
   protection,
 }

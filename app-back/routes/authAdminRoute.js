@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/login',isLoggedOut,Login)
 router.get('/register',Register)
 router.post('/register',registerCheck(),registerUser)
-router.post('/login', logUser);
+router.post('/login' ,logUser);
 router.get('/logout',isLoggedIn,logoutUser);
 
 

@@ -1,14 +1,18 @@
 <h4>Register</h4>
+<div id="errors">
+    
 
-{{#each errors }}
-   
-    <div class="err-msg row" id="error-msg">
-        <span class="col s11">{{msg}}</span>
-        <div id="btn-alert-close" class="button col s1">
-            <i class="material-icons">close</i>
+    {{#each errors }}
+    
+        <div class="err-msg row" id="error-msg-{{id}}">
+            <span class="col s11">{{msg}}</span>
+            <div id="btn-alert-close" class="button col s1">
+                <i class="material-icons">close</i>
+            </div>
         </div>
-    </div>
-{{/each}}
+    {{/each}}
+</div>
+
 
 
 <div class="container  auth-form-container">
@@ -43,7 +47,9 @@
             value="{{#if password }} {{password}}{{else}}{{/if}}"
             >
         <label for="password">Password</label>
+       
     </div>
+    
     <div class="input-field col s6">
         <input 
             id="confirm_password" 
@@ -53,7 +59,14 @@
             value="{{#if confirmPassword }} {{confirmPassword}} {{else}}{{/if}}"
             >
         <label for="confirm_password">Confirm Password</label>
+        <div class="input-field-checkbox col s6">
+        <label>
+            <input type="checkbox" onclick="toggleTypeInput()"/>
+            <span>Show password</span>
+        </label>
+        </div
     </div>
-    <button class="waves-effect waves-light btn">Register</button>
+    
+    <button class="waves-effect waves-light btn btn-auth">Register</button>
 </form>
 </div>

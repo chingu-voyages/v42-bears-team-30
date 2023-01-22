@@ -58,7 +58,11 @@ app.engine('.hbs', engine({defaultLayout : 'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');
 
-
+//force the navigator to reload when user try to browse back using browser button back
+app.use(function(req, res, next) {
+  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+});
 
 //the route
 app.use('/auth',authAdmin)

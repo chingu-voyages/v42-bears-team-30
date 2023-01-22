@@ -1,1 +1,14 @@
 GET http://localhost:5000/record
+
+####
+
+POST http://localhost:5000/api/register/client
+
+Content-Type: 'application/json'
+
+{
+    "username":"test",
+    "email":"test1234@gmail.com",
+    "phoneNumber":"+22345667777",
+    "password":"test1234",
+}

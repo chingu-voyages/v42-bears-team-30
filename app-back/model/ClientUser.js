@@ -26,4 +26,9 @@ const UserClientSchema = new mongoose.Schema({
   },
 });
 
+UserClientSchema.virtual('id').get(function () {
+  return this._id.toString();
+});
+
+
 module.exports = mongoose.model('ClientUser', UserClientSchema);

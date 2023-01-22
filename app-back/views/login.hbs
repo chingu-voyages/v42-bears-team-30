@@ -3,17 +3,18 @@
 {{#if message}}
 <div class="err-msg row" id="error-msg">
     <span class="col s11">{{message}}</span>
-    <div id="btn-alert-close" class="button col s1">
+    <div id="btn-alert-close" class="button col s1" >
         <i class="material-icons">close</i>
     </div>
 </div>
 {{/if}}
 
-{{email}}
+
 <div class="container  auth-form-container">
     <form action="/auth/login" method="post">
-        <div class="input-field col s16">
-        <input 
+        <div class="input-field input-auth col s16">
+        <input
+            autocomplete="off"
             id="email"
             type="email" 
             class="validate" 
@@ -22,16 +23,27 @@
             >
         <label for="email">Email</label>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field  col s6">
         <input 
+            autocomplete="new-password"
             id="password" 
             type="password" 
             class="validate" 
             name="password"
             value="{{#if password }} {{password}}{{else}}{{/if}}"
             >
+            
         <label for="password">Password</label>
+
+        <div class="input-field-checkbox col s6">
+        <label>
+            <input type="checkbox" onclick="toggleTypeInput()"/>
+            <span>Show password</span>
+        </label>
     </div>
+    </div>
+    
+   
 
 
     <button class="waves-effect waves-light btn">Log In</button>

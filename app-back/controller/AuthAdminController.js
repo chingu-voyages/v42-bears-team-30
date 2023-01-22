@@ -3,36 +3,44 @@ const {validationResult} = require('express-validator');
 const passport = require('passport')
 const bcrypt = require('bcrypt')
 const Login = (req,res) => {
+    //res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     
     res.render('login',{
         layout: 'login',
-        message: req.flash('error'),
-        email: req.body.email,
-        password: req.body.password
     })
 
 }
 
 const Register = (req,res) => {
-
+    //res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
     res.render('register',{
         layout: 'register',
     
     })
 
 }
-const logUser =  (req, res, next) => {
-    
-    passport.authenticate('local', {
-      successRedirect: '/room',
-      failureRedirect: '/auth/login',
-      failureFlash: true
-    })(req, res, next);
-    
+const logUser =  (req, res,next) => {
+
+    const {email,password} = req.body;
+
+    passport.authenticate('local',(err,user,info) => {
+        
+        if(err) return next(err)
+        if(!user) return res.render('login', {
+            layout: 'login',
+            message : req.flash('error'),
+            email:email.toString().trim(),//trim() remove spaces before and after the letter
+            password:password.toString().trim()// trim() remove spaces before and after the letter
+        })
+        req.login(user, err => {
+            if(err) return next(err)
+            return res.redirect('/room')
+            
+        })
+    })(req,res,next)
 
 
 }
-
 
 const registerUser = async (req,res) => {
     const { username,password,email,confirmPassword} = req.body;
@@ -40,14 +48,17 @@ const registerUser = async (req,res) => {
     
     try {
         let errors = validationResult(req)
-        console.log("req.body",req.body)
+        const newError = errors.array().map((error,index) => {
+            error.id = index;
+            return error;
         
+        })
+        console.log("new eroor",newError)
         if(!errors.isEmpty()){
-            console.log(errors.array());
-        
-            res.render('register',{
+
+        res.render('register',{
                 layout: 'register', 
-                errors: errors.array(),
+                errors: newError,
                 username,
                 email,
                 password,
@@ -90,7 +101,6 @@ const logoutUser =  (req, res,next) => {
         res.redirect('/auth/login');
       });
   
-    console.log("user: ",req.user)
 }
 
 

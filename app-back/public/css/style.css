@@ -1,3 +1,18 @@
+/* nav */
+nav{
+    background-color: #0FE18B;
+}
+nav .brand-logo{
+    padding-left: 35px;
+
+}
+nav .nav-item{
+    margin-right: 70px;
+}
+nav .nav-btn-logout{
+    margin-right: 20px;
+    margin-top: 13px;
+}
 p{
     margin: 10px 0 !important;
 }
@@ -12,8 +27,19 @@ p{
     margin-top: 50px;
 }
 
-.login-container .auth-form-container .input-field{
+.login-container .auth-form-container .input-auth{
     padding-bottom : 10px;
+ }
+ .login-container .auth-form-container .input-field-checkbox{
+   display: flex;
+ }
+ .login-container .auth-form-container .input-field-checkbox span{
+   font-size: 12px;
+ }
+ 
+ .login-container .auth-form-container .btn{ 
+    margin-top : 44px;
+    width: 100%;
  }
 .login-container .card .card-content .err-msg{
     
@@ -50,3 +76,7 @@ p{
 	
 }	
 	
+/* table user client */
+table thead{
+    background-color: rgb(121, 121, 121);
+}
