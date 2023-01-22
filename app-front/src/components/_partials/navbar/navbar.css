@@ -50,9 +50,12 @@
 }
 
 /* RESPONSIVE */
-@media (width <= 600px) {
+@media (width <= 875px) {
     .navbar-chingu {
-        position: absolute;
+        position: relative;
+    }
+    .nav-left {
+        margin-right: auto;
     }
     /* MENU */
     .nav-right .nav-links li {
@@ -66,8 +69,7 @@
     }
     .responsive {
         background-color: #0FE18B;
-        position: absolute;
-        margin-right: -11em;
+        margin-left :auto;
         padding: 0 20px;
         top: 0;
     }
