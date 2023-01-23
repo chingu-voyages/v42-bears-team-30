@@ -233,6 +233,7 @@
     color: #484848;
 }
 
+.details-right p span,
 .reserve-content h5 .price,
 .reserve-modal p .price,
 .total-cost .price {
