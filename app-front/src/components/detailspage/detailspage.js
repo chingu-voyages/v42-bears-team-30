@@ -168,7 +168,6 @@ function DetailsPage() {
                                     <div className='reserve-content'>
                                         <h5>
                                             Booking Well Furnished Apartement
-                                            <span className='price'>$ 1000 - $ 2000</span>
                                         </h5>
                                         <button className='btn-close' onClick={() => setIsOpen(false)}></button>
                                     </div>
@@ -178,9 +177,6 @@ function DetailsPage() {
                                             <img src={ room1 } alt="room picture" />
                                         </div>
                                         <div className='modal-content-right'>
-                                            <p>Short period: <span className='price'>$ 1000</span></p>
-                                            <p>Medium period: <span className='price'>$ 2000</span></p>
-                                            <p>Long period: <span className='price'>$ 2000</span></p>
                                             <div className='check-room-forms'>
                                                 <div className='check-in-container'>
                                                     <p>Check In</p>
@@ -192,11 +188,6 @@ function DetailsPage() {
                                                     {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
                                                     {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
                                                 </div>
-                                                <div className='guests-container'>
-                                                    <p>Guests</p>
-                                                    {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add guests</div>}
-                                                    {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChange} />}
-                                                </div>
                                                 <div className='btn-search-container'>
                                                     <button className='btn-search'>
                                                         <img src={ checkButton } alt='check button' />
@@ -204,6 +195,7 @@ function DetailsPage() {
                                                 </div>
                                             </div>
                                             <br />
+                                            <p className='total-person'>Max number person: <span className='number'>10</span></p>
                                             <p className='total-cost'>Total cost: <span className='price'>$ 2000</span></p>
                                             <div className='btn-reserve'>
                                                 <a className='btn-reserve'>Booking now</a>

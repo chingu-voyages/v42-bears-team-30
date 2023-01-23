@@ -255,3 +255,7 @@
 .check-room-forms div input {
     font-size: small;
 }
+
+.check-in-container input {
+    margin-right: 1em;
+}
