@@ -23,6 +23,8 @@ const getAllUserClient = (req, res) => {
     })
   
 };
+
+//log in user in the client side
 const loginUserClient = (req, res) => {
   const { email, password } = req.body;
   try {
@@ -37,8 +39,6 @@ const loginUserClient = (req, res) => {
         //if the password is not match
         if (isMatch === false)
           return res.json({ status: '404', message: 'Incorrect password' });
-
-        ///crate a jwt token here
 
         //return into the client side user
         return res.json({
