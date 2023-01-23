@@ -1,23 +1,10 @@
+// navabar
 
- const btnClose = document.getElementById('btn-alert-close')
+
+
+const btnClose = document.getElementById('btn-alert-close')
 
 const errors  = document.getElementById('errors');
-
-
-// btnClose.addEventListener('click',(e) => {
-//     e.preventDefault();
-//     console.log('click')
-//     btnClose.parentElement.remove();
-//     console.log('parent', btnClose.parentElement)
-// })
-
-
-// for (let i = 0; i < btnClose.length; i++) {
-//     btnClose[i].addEventListener("click", function() {
-//         let errorMsg = this.parentNode;
-//         errorMsg.parentNode.removeChild(errorMsg);
-//     });
-// }
 
 const errorCloseButtons = document.querySelectorAll('#btn-alert-close');
 errorCloseButtons.forEach(button => {
@@ -44,3 +31,6 @@ function toggleTypeInput(){
     }
 }
 
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
