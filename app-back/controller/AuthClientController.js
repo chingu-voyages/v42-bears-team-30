@@ -13,7 +13,6 @@ const getAllUserClient = (req, res) => {
       
       if(err) throw new Error(err)
       res.render('userClient', {
-        
         test:'test ito',
         data: data,
         user: req.user.username,
@@ -33,12 +32,11 @@ const loginUserClient = (req, res) => {
       if (err) res.json({ status: '500', message: err });
 
       //if user is not found
-      if (!user) return res.json({ status: '404', message: 'Incorrect email' });
+      if (!user) return res.json({ status: '404', message: 'Incorrect email' ,body: 'email'});
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (err) throw err;
         //if the password is not match
-        if (isMatch === false)
-          return res.json({ status: '404', message: 'Incorrect password' });
+        if (isMatch === false) return res.json({ status: '404', message: 'Incorrect password',body: 'password' });
 
         //return into the client side user
         return res.json({
@@ -61,11 +59,11 @@ const registerUserClient = (req, res) => {
     ClientUser.findOne({ email: email }, (err, user) => {
       if (err) return res.json({ staus: '500', message: 'An error occured' });
       if (user)
-        return res.json({ staus: '400', message: 'Email already existed' });
+        return res.json({ staus: '400', message: 'Email already existed',body: 'email' });
       bcrypt.genSalt(saltRound, (err, salt) => {
         if (err) throw err;
         bcrypt.hash(password, salt, (errorHash, hash) => {
-          
+
           if (errorHash) throw errorHash;
 
           const clientUser = new ClientUser({

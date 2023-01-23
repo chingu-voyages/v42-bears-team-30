@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import {loginUserRoute} from '../../utils/ApiRoute';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({setShowLogout}) => {
 
     const schema = Yup.object().shape({
         email: Yup.string()
@@ -14,14 +14,25 @@ const Login = () => {
             .required("Password is a required field")
             
     });
-    const handleSubmit = async (values,actions) =>{
+    const handleSubmit = async (values,{setErrors}) =>{
         // alert(JSON.stringify(values))
         try {
             const {data} = await axios.post(loginUserRoute,values);
             console.log("data",data)
-        
+            if(data.body === 'email'){
+                setErrors({ email: data.message})
+            }
+            if(data.body === 'password'){
+                setErrors({ password: data.message})
+            }
+            if(data.token){
+                delete data.status
+                localStorage.setItem("user", JSON.stringify(data));
+            }
             //console.log("status",status)
-            alert(data.message)
+        
+            setShowLogout(true);
+
         } catch (error) {
             alert(error)
         }
@@ -33,7 +44,8 @@ const Login = () => {
             <Formik 
                 validationSchema={schema}
                 initialValues={{ email: "", password: "" }}
-                onSubmit={(values) => handleSubmit(values)}
+                onSubmit={(values,{setErrors}) => handleSubmit(values,{setErrors})}
+                
                 
             >{(
                 {
@@ -43,7 +55,7 @@ const Login = () => {
                     handleChange,
                     handleBlur,
                     handleSubmit,
-                    status
+                
     
                 }
             ) => (

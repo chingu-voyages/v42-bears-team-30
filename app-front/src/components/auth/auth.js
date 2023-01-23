@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import './auth.css';
 import Login from './Login';
 import Register from './Register';
+import Logout from './Logout';
 function Auth() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showLogin,setShowLogin] = useState(true);
+  const [showLogout,setShowLogout] = useState(false);
   const [showRegister,setShowRegister] = useState(false);
   
+  useEffect(() => {
+    let user = localStorage.getItem('user')
+    console.log("user : ",user)
+    if(user){
+      setShowLogout(true)
+      console.log('logout',showLogout)
+    }else{
+      setShowLogout(false);
+    }
+    
 
+  },[showLogout])
   const clickLogin = () => {
-    setShowLogin(true);
+    
     setShowRegister(false);
 
   }
 
   const clickRegister = () => {
     setShowRegister(true)
-    setShowLogin(false)
+   
   }
   return (
     <div>
-      <button className='nav-auth' onClick={() => setIsOpen(true)}>Login/Register</button>
+      {showLogout ? <Logout setShowLogout={setShowLogout}/> : <button className='nav-auth' onClick={() => setIsOpen(true)}>Login/Register</button>}
       {isOpen && (
         <div className='auth'>
           
@@ -30,7 +42,7 @@ function Auth() {
                 <a onClick={clickRegister}>Register</a>
             </div>
             <hr />
-            {showRegister ?<Register setShowRegister={setShowRegister}/> : <Login/>}
+            {showRegister ?<Register setShowRegister={setShowRegister}/> : <Login setShowLogout={setShowLogout}/>}
             
             
             <button className='btn-close' onClick={() => setIsOpen(false)}></button>

@@ -20,7 +20,7 @@ module.exports = function(passport) {
             // Match user
             AdminUser.findOne({email: req.body.email},(err,user) =>{
                 if (err) throw err;
-                if(!user) return done(null,false,req.flash('error','Incorrect email'));
+                if(!user) return done(null,false,req.flash('error','This email does not exist'));
                 
                 bcrypt.compare(password,user.password, (err,isMatch) =>{
                     

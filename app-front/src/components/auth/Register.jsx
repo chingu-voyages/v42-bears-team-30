@@ -25,13 +25,18 @@ const Register = ({setShowRegister}) => {
 
     });
 
-    const handleSubmit = async (values,actions) => {
+    const handleSubmit = async (values,{setErrors}) => {
         try {
             const {data} = await axios.post(registerUserRoute,values)
             console.log("data",data);
             
-            alert(data.message)
-            setShowRegister(false)
+            if(data.body === 'email'){
+                setErrors({ email: data.message})
+            }else{
+                alert(data.message)
+                setShowRegister(false)
+            }
+            
         } catch (error) {
             if(error) throw error
         }
@@ -46,7 +51,7 @@ const Register = ({setShowRegister}) => {
             <Formik 
                 validationSchema={schema}
                 initialValues={{ username:"",email: "",phoneNumber: "", password: "" ,confirmPassword: ""}}
-                onSubmit={(values,actions) =>handleSubmit(values,actions)}
+                onSubmit={(values,{setErrors}) =>handleSubmit(values,{setErrors})}
                 
             >{(
                 {
