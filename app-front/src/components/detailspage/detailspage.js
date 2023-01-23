@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Navbar from '../_partials/navbar/navbar_other_pages';
 
@@ -15,11 +15,28 @@ import wifiIcon from '../../assets/icons/wifi.png';
 import balconyIcon from '../../assets/icons/balcony.png';
 import batteryIcon from '../../assets/icons/battery.png';
 import callIcon from '../../assets/icons/call.png';
+import checkButton from '../../assets/icons/check.png'
+
+import room1 from '../../assets/images/rooms/room-1.png';
 
 import './detailspage.css';
 import Footer from '../_partials/footer/footer';
 
 function DetailsPage() {
+
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [showInput, setShowInput] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+
+    const handleClick = () => {
+        setShowInput(true);
+    }
+
+    const handleChange = (event) => {
+        setInputValue(event.target.value);
+    }
+
     return (
         <div className='details-page'>
             <Navbar />
@@ -142,13 +159,62 @@ function DetailsPage() {
                         <p>Short period: <span>$ 1000</span></p>
                         <p>Medium period: <span>$ 2000</span></p>
                         <p>Long period: <span>$ 2000</span></p>
-                        <div className='btn-reserve'>
-                            <a className="btn-reserve" >
-                                Reserve now
-                            </a>
+                        <div className='btn-reserve' onClick={() => setIsOpen(true)}>
+                            <a className='btn-reserve'>Reserve now</a>
+                        </div>
+                        <div className='modal-booking'>
+                            {isOpen && (
+                                <div className='reserve-modal'>
+                                    <div className='reserve-content'>
+                                        <h5>
+                                            Booking Well Furnished Apartement
+                                            <span className='price'>$ 1000 - $ 2000</span>
+                                        </h5>
+                                        <button className='btn-close' onClick={() => setIsOpen(false)}></button>
+                                    </div>
+                                    <hr />  
+                                    <div className='modal-room-content'>
+                                        <div className='modal-content-left'>
+                                            <img src={ room1 } alt="room picture" />
+                                        </div>
+                                        <div className='modal-content-right'>
+                                            <p>Short period: <span className='price'>$ 1000</span></p>
+                                            <p>Medium period: <span className='price'>$ 2000</span></p>
+                                            <p>Long period: <span className='price'>$ 2000</span></p>
+                                            <div className='check-room-forms'>
+                                                <div className='check-in-container'>
+                                                    <p>Check In</p>
+                                                    {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
+                                                    {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
+                                                </div>
+                                                <div className='check-out-container'>
+                                                    <p>Check Out</p>
+                                                    {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
+                                                    {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
+                                                </div>
+                                                <div className='guests-container'>
+                                                    <p>Guests</p>
+                                                    {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add guests</div>}
+                                                    {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChange} />}
+                                                </div>
+                                                <div className='btn-search-container'>
+                                                    <button className='btn-search'>
+                                                        <img src={ checkButton } alt='check button' />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <p className='total-cost'>Total cost: <span className='price'>$ 2000</span></p>
+                                            <div className='btn-reserve'>
+                                                <a className='btn-reserve'>Booking now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                         <div className='call'>
-                            <a >
+                            <a>
                                 <img src={ callIcon } alt="img-icon" />
                                 Call us
                             </a>
