@@ -6,7 +6,7 @@ const router = express.Router();
 
 //route localhost:
 
-router.post('/login/client', protection, loginUserClient);
-router.post('/register/client', protection, registerUserClient)
+router.post('/login/client', loginUserClient);
+router.post('/register/client', registerUserClient)
 
 module.exports = router;

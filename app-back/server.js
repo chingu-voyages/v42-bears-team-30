@@ -69,6 +69,9 @@ app.use('/auth',authAdmin)
 app.use('/room',roomRoute);
 app.use('/client',userClientRoute)
 app.use('/api',apiRoute);
+app.get('/',(req,res) => { 
+  res.redirect('/room')
+})
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port:  ${port}`);
 });

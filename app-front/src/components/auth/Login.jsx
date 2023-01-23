@@ -21,7 +21,7 @@ const Login = () => {
             console.log("data",data)
         
             //console.log("status",status)
-            //alert(data.message)
+            alert(data.message)
         } catch (error) {
             alert(error)
         }

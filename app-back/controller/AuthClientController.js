@@ -7,18 +7,20 @@ const jwt = require('jsonwebtoken');
 //const {ObjectId}= require("mongodb");
 
 const getAllUserClient = (req, res) => {
-  ClientUser.find({}).select('-password -token -_id').exec((err,data) =>{
-    console.log('data',data)
-    if(err) throw new Error(err)
-    res.render('userClient', {
+  ClientUser.find({}).select('-password -token ')
+    .lean()// to get a json object (instead of a mongoose one)
+    .exec((err,data) =>{
       
-      test:'test ito',
-      data: data,
-      user: req.user.username,
-      sessionId: req.sessionID,
-      cookiesAge: req.session.cookie.maxAge,
-    });
-  })
+      if(err) throw new Error(err)
+      res.render('userClient', {
+        
+        test:'test ito',
+        data: data,
+        user: req.user.username,
+        sessionId: req.sessionID,
+        cookiesAge: req.session.cookie.maxAge,
+      });
+    })
   
 };
 const loginUserClient = (req, res) => {

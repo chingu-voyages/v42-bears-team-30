@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from 'axios'
 import {registerUserRoute} from '../../utils/ApiRoute'
-const Login = () => {
+const Register = ({setShowRegister}) => {
 
     const schema = Yup.object().shape({
         username: Yup.string()
@@ -29,11 +29,9 @@ const Login = () => {
         try {
             const {data} = await axios.post(registerUserRoute,values)
             console.log("data",data);
-            actions.setStatus({
-                message: data.message,
-                password: data.message,
-            })
+            
             alert(data.message)
+            setShowRegister(false)
         } catch (error) {
             if(error) throw error
         }
@@ -160,4 +158,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register
