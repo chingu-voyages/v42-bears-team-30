@@ -65,7 +65,9 @@ const registerUserClient = (req, res) => {
       bcrypt.genSalt(saltRound, (err, salt) => {
         if (err) throw err;
         bcrypt.hash(password, salt, (errorHash, hash) => {
+          
           if (errorHash) throw errorHash;
+
           const clientUser = new ClientUser({
             username: username,
             email: email,
