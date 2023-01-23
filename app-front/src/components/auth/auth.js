@@ -38,7 +38,7 @@ function Auth() {
             <hr />
             {showRegister ?<Register /> : <Login/>}
             
-              
+            
             <button className='btn-close' onClick={() => setIsOpen(false)}></button>
           
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../_partials/navbar/navbar';
-import searchButton from '../../assets/icons/btn-search.png'
+import searchButton from '../../assets/icons/btn-search.png';
 import './homepage.css';
 import Cards from '../cards/cards';
 import TopCards from '../cards/topRatedCards/topRatedCards';
