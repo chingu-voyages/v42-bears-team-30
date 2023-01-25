@@ -59,12 +59,15 @@
 }
 
 .room-price {
+    align-items: center;
+    background-color: #f02f2fc9;
     color: white;
     display: flex;
     justify-content: space-between;
-    margin: 0 15px;
+    padding: 0 10px;
     position: relative;
     top: 85%;
+    width: 100%;
 }
 
 .room-title {
