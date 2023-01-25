@@ -14,16 +14,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen,projection">
     <link  type="text/css" rel="stylesheet" href="/css/style.css" >
-    <title>Room book</title>
+    <title>{{title}}</title>
 </head>
 <body> 
     {{> _header}}
-    <div class="container">
-       
-        {{{body}}}
+    
+
+    <div class="no-padding no-margin">
+        {{> sidenav}}
     </div>
     
+        <div class="container">
+       
+            {{{body}}}
+        </div>
+    
+    
+
 </body>
+<script type="text/javascript" src="/js/jquery-3.6.3.min.js"></script>
 <script type="text/javascript" src="/js/materialize.js"></script>
 <script type="text/javascript" src="/js/app.js"></script>
 </html>

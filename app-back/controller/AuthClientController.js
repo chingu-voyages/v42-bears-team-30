@@ -13,11 +13,11 @@ const getAllUserClient = (req, res) => {
       
       if(err) throw new Error(err)
       res.render('userClient', {
-        test:'test ito',
+        title: 'Client user',
         data: data,
         user: req.user.username,
-        sessionId: req.sessionID,
-        cookiesAge: req.session.cookie.maxAge,
+        email: req.user.email,
+      
       });
     })
   

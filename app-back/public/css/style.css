@@ -1,9 +1,66 @@
 /* nav */
+
 nav{
     background-color: #0FE18B;
 }
+
+.sidenav-trigger{
+    cursor: pointer;
+}
+/* .side-nav{
+    background-color: rgb(44, 255, 132);
+    height: 100vh;
+    padding:0px ;
+    margin: 0px ;
+    
+
+}  */
+.background-sidenav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-view{
+    background-color: #0FE18B;
+}
+.user-view .admin-logo{
+    width: 10%;
+    padding-right: 10px;
+}
+.user-view .user-info{
+    padding-left: 0px !important;
+}
+.user-view  .icon{
+    color: #fff;
+    margin-right: 6px;
+    
+   
+}
+
+/* .user-view  .user-info .account-item-user{
+    display:inline-block;
+    background-color: black;
+    margin-bottom: 10px; 
+}
+.user-view  .user-info .account-item-email{
+    display:inline-block;
+    background-color: black;
+    margin-bottom: 10px;  
+}*/
+
+.no-padding{
+    padding: 0px !important;
+    
+}
+.no-margin{
+    margin: 0px !important;
+}
 nav .brand-logo{
-    padding-left: 35px;
+    padding-left: 150px;
+
+}
+nav .btn-menu{
+    padding-left: 30px;
 
 }
 nav .nav-item{
