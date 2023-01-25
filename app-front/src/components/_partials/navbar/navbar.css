@@ -23,6 +23,7 @@
 }
 
 .nav-right .nav-links {
+    align-items: center;
     margin-top: 20px;
 }
 
@@ -46,6 +47,8 @@
 .nav-right .nav-links .menu-hamburger a img {
     height: 30px;
     margin-top: 6px;
+    position: absolute;
+    right: 5px;
     width: 30px;
 }
 
@@ -58,6 +61,14 @@
         margin-right: auto;
     }
     /* MENU */
+    .responsive .nav-links {
+        background-color: #0FE18B;
+        border-radius: 5px;
+        line-height: 2em;
+        margin-right: -16px;
+        margin-top: 36px !important;
+        padding: 10px 20px !important;
+    }
     .nav-right .nav-links li {
         display: none;
     }
@@ -68,9 +79,10 @@
         top: 0;
     }
     .responsive {
-        background-color: #0FE18B;
         margin-left :auto;
         padding: 0 20px;
+        position: absolute;
+        right: 0;
         top: 0;
     }
     .responsive .nav-links {
