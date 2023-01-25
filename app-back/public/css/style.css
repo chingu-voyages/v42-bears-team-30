@@ -1,5 +1,9 @@
 /* nav */
 
+.user-view .admin-logo {
+    margin-left: -18px;
+}
+
 nav{
     background-color: #0FE18B;
 }
@@ -135,5 +139,36 @@ p{
 	
 /* table user client */
 table thead{
-    background-color: rgb(121, 121, 121);
+    background-color: #0d5c4f;
+    color: white;
+}
+
+table {
+    border: 1px;
+}
+
+/* Login Admin */
+.card-content h4 {
+    color: #0FE18B;
+    font-weight: bold;
+}
+
+.login-container {
+    background-color: #0FE18B;
+}
+
+.login-container h3 img {
+    margin-top: 0.5em;
+}
+
+/* Room page */
+.brand-logo img {
+    margin-left: -140px;
+    margin-top: 9px;
+}
+
+.container h1 {
+    color: #0FE18B;
+    font-size: 1.8em;
+    font-weight: bold;
 }
