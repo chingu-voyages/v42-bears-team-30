@@ -1,4 +1,45 @@
-<h1>Room</h1>
-<h2>User : {{user}}</h2>
-<p>seesion ID: {{sessionId}}</p>
-<p>Age cookies: {{cookiesAge}}</p>
+<div class="rooms">
+    <div class="rooms-content">
+        <div class="rooms-content-left">
+            <h1>Rooms</h1>
+            <!--
+            <h2>User : {{user}}</h2>
+            <p>seesion ID: {{sessionId}}</p>
+            <p>Age cookies: {{cookiesAge}}</p>
+            -->
+        </div>
+        <div class="rooms-content-right">
+            <button class="btn">+</button>
+        </div>
+    </div>
+    <div class="rooms-list">
+        {{test}}
+        <table class="responsive-table highlight">
+
+            <thead>
+                <tr>
+                    <th>Nb guests max</th>
+                    <th>Room number</th>
+                    <th>Room description</th>
+                    <th>Rent</th>
+                    <th>Availability</th>
+                    <th>Booked by</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {{/each}}
+            </tbody>
+
+      </table>
+    </div>
+</div>

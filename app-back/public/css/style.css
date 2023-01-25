@@ -172,3 +172,13 @@ table {
     font-size: 1.8em;
     font-weight: bold;
 }
+
+/* Rooms */
+.rooms-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rooms-content-right .btn {
+    margin-top: 2.4em;
+}

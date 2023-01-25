@@ -3,11 +3,10 @@
  <table class="responsive-table highlight">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone Number</th>
-              
+            <th>Last check out</th>   
           </tr>
         </thead>
 
@@ -15,12 +14,12 @@
             
                 {{#each data}}
             <tr>
-                <td>{{_id}}</td>
                 <td>{{username}}</td>
                 <td>{{email}}</td>
                 <td>{{phoneNumber}}</td>
+                <td></td>
             </tr>
                 {{/each}}
-            
+  
         </tbody>
       </table>
