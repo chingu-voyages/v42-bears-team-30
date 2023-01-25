@@ -66,7 +66,7 @@
         border-radius: 5px;
         line-height: 2em;
         margin-right: -16px;
-        margin-top: 36px !important;
+        margin-top: 42px !important;
         padding: 10px 20px !important;
     }
     .nav-right .nav-links li {
@@ -100,5 +100,8 @@
     .responsive .nav-links div .nav-auth {
         background-color: transparent;
         padding: 0;
+    }
+    .responsive .auth {
+        transform: translate(-72%, -50%);
     }
 }

@@ -35,3 +35,17 @@
     text-decoration: none;
 }
 /* ------------------ */
+
+/* RESPONSIVE */
+@media (width <= 875px) {
+    .navbar-other-pages {
+        align-items: center;
+        background-color: #0FE18B;
+        justify-content: space-around;
+        margin-bottom: 0 !important;
+        padding: 18px;
+        position: static;
+        top: 0;
+        width: 100%;
+    }
+}

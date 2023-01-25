@@ -259,3 +259,30 @@
 .check-in-container input {
     margin-right: 1em;
 }
+
+
+@media (width <= 875px) {
+    .modal-content-left img {
+        width: 220px;
+    }
+    .check-room-forms {
+        flex-wrap: wrap;
+    }
+    .details-room-images {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .room-img-1,
+    .room-img-2,
+    .room-img-3,
+    .room-img-4 {
+        height: 150px;
+        width: 150px;
+    }
+    .room-img-5 {
+        height: 100px;
+    }
+    .details-other {
+        padding: 20px 25px;
+    }
+}

@@ -83,7 +83,7 @@
 }
 
 /* RESPONSIVE */
-@media (width <= 750px) {
+@media (width <= 800px) {
     .find-room-forms {
         display: block;
         text-align: center;
