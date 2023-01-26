@@ -11,12 +11,12 @@ function Auth() {
   
   useEffect(() => {
     let user = localStorage.getItem('user')
-    console.log("user : ",user)
-    if(user){
+    if(user) {
       setShowLogout(true)
-      console.log('logout',showLogout)
-    }else{
+      setIsOpen(false);
+    } else {
       setShowLogout(false);
+      setIsOpen(false);
     }
     
 
