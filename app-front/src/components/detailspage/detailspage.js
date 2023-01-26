@@ -48,20 +48,20 @@ function DetailsPage() {
             <Navbar />
             <div className='details-other'>
                 <div className='details-room-images'>
-                    <div className='room-img-1'>
-                        
+                    <div className='room-img room-img-1'>
+                        <img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cm9vbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="Room" />
                     </div>
-                    <div className='room-img-2'>
-                        
+                    <div className='room-img room-img-2'>
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Room" />
                     </div>
-                    <div className='room-img-3'>
-                        
+                    <div className='room-img room-img-3'>
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60" alt="Room" />
                     </div>
-                    <div className='room-img-4'>
-                        
+                    <div className='room-img room-img-4'>
+                        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60" alt="Room" /> 
                     </div>
-                    <div className='room-img-5'>
-                        <p>More photos</p>
+                    <div className='room-img room-img-5'>
+                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Room" />
                     </div>
                 </div>
                 <div className='details-description'>

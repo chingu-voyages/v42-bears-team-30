@@ -24,23 +24,18 @@
 
 
 .room-img-1 {
-    background-color: #d1c6c6;
     grid-area: 1 / 1 / 5 / 5;
 }
 .room-img-2 {
-    background-color: #a59696;
     grid-area: 1 / 5 / 3 / 7;
 }
 .room-img-3 {
-    background-color: #756767;
     grid-area: 1 / 7 / 3 / 9;
 }
 .room-img-4 {
-    background-color: #7e7676; 
     grid-area: 3 / 5 / 5 / 7;
 }
 .room-img-5 {
-    background-color: #bbb3b3;
     grid-area: 3 / 7 / 5 / 9;
     text-align: center;
 }
@@ -49,6 +44,11 @@
     color: #9A9A9A;
     font-weight: bold;
     margin: 30% 25%;
+}
+
+.room-img img {
+    height: 100%;
+    width: 100%;
 }
 
 .details-description {
@@ -100,18 +100,20 @@
 
 .details-pieces .piece {
     align-items: center;
-    background-color: #F7FF048F;
+    background-color: #0FE18B;
     border-radius: 12px;
+    color: white;
     display: flex;
     flex-direction: column;
     font-size: 0.8em;
+    font-weight: bold;
     padding: 25px 20px;
-    width: 130px;
+    width: 140px;
 }
 
 .details-pieces .piece span {
-    color: #470fe1;
-    font-size: 1em;
+    color: #e1b60f;
+    font-size: 1.2em;
     font-weight: bold;
     margin-right: 0.3em;
 }
@@ -164,8 +166,12 @@
 }
 
 .details-right h2 {
-    color: #484848;
+    color: #fff;
+    background: #a45252;
     font-size: 1em;
+    font-weight: bold;
+    padding: 8px 10px;
+    text-align: center;
 }
 
 .details-right p {
@@ -174,7 +180,7 @@
 }
 
 .details-right .btn-reserve {
-    background-color: #0FE18B;
+    background-color: #E1AC0F;
     border-radius: 40px;
     color: white;
     cursor: pointer;
@@ -239,7 +245,7 @@
 .reserve-content h5 .price,
 .reserve-modal p .price,
 .total-cost .price {
-    color: #0FE18B;
+    color: #FFD700;
     font-weight: bold;
     font-size: 1em;
     margin-left: 1em;
@@ -286,5 +292,8 @@
     }
     .details-other {
         padding: 20px 25px;
+    }
+    .details-pieces .piece {
+        margin-top: 1em;
     }
 }
