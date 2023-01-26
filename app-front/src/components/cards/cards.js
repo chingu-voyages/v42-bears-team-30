@@ -11,6 +11,7 @@ import room2 from '../../assets/images/rooms/room-2.png';
 import room3 from '../../assets/images/rooms/room-3.png';
 
 import './cards.css';
+import LoveButton from '../loveButton/loveButton';
 
 function Cards() {
     const cards = [1,2,3,4,5,6]
@@ -28,7 +29,7 @@ function Cards() {
                                 <div className='card-room-top' onClick={navigate(`/room-details/${card}`)}>
                                     <img className='room-picture' src={ room3 } alt="img-room"/>
                                     <div className='love-icon'>
-                                        <img src={ loveIcon } alt='love' />
+                                        <LoveButton />
                                     </div>
                                     <div className='room-price'>
                                         <div className='price'>

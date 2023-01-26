@@ -268,6 +268,16 @@
     margin-right: 1em;
 }
 
+.details-love img {
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+
+.details-love img:hover {
+    height: 35px;
+    width: 35px;
+}
 
 @media (width <= 875px) {
     .modal-content-left img {

@@ -8,6 +8,7 @@ import room2 from '../../../assets/images/rooms/room-2.png';
 import room3 from '../../../assets/images/rooms/room-3.png';
 
 import './topRatedCards.css';
+import LoveButton from '../../loveButton/loveButton';
 
 function Cards() {
 
@@ -32,7 +33,7 @@ function Cards() {
                                 </div>
                             </div>
                             <div className='love-icon'>
-                                <img src={ loveIcon } alt='love' />
+                                <LoveButton />
                             </div>
                         </div>
                         <div className='room-details'>
@@ -60,7 +61,7 @@ function Cards() {
                                 </div>
                             </div>
                             <div className='love-icon'>
-                                <img src={ loveIcon } alt='love' />
+                                <LoveButton />
                             </div>
                         </div>
                         <div className='room-details'>
@@ -87,7 +88,7 @@ function Cards() {
                                 </div>
                             </div>
                             <div className='love-icon'>
-                                <img src={ loveIcon } alt='love' />
+                                <LoveButton />
                             </div>
                         </div>
                         <div className='room-details'>

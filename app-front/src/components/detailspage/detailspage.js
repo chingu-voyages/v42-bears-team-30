@@ -21,6 +21,7 @@ import room1 from '../../assets/images/rooms/room-1.png';
 
 import './detailspage.css';
 import Footer from '../_partials/footer/footer';
+import LoveButton from '../loveButton/loveButton';
 
 function DetailsPage() {
 
@@ -71,9 +72,7 @@ function DetailsPage() {
                                 <h2>Well Furnished Apartement</h2>
                                 <p>101 BT-30 Chingu</p>
                             </div>
-                            <div className='details-love'>
-                                <img src={ loveIcon } alt="img-icon" />
-                            </div>
+                            <LoveButton />
                         </div>
                         <div className='details-pieces'>
                             <div className='piece'>
