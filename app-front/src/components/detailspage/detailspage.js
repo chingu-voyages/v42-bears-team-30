@@ -27,14 +27,20 @@ function DetailsPage() {
 
     const [isOpen, setIsOpen] = useState(false);
     const [showInput, setShowInput] = useState(false);
-    const [inputValue, setInputValue] = useState('');
+    
+    const [inputCheckInValue, setInputCheckInValue] = useState('');
+    const [inputCheckOutValue, setInputCheckOutValue] = useState('');
 
     const handleClick = () => {
         setShowInput(true);
     }
 
-    const handleChange = (event) => {
-        setInputValue(event.target.value);
+    const handleChangeCheckInValue = (event) => {
+        setInputCheckInValue(event.target.value);
+    }
+
+    const handleChangeCheckOutValue = (event) => {
+        setInputCheckOutValue(event.target.value);
     }
 
     return (
@@ -181,12 +187,12 @@ function DetailsPage() {
                                                 <div className='check-in-container'>
                                                     <p>Check In</p>
                                                     {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
-                                                    {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
+                                                    {showInput && <input type="date" value={inputCheckInValue} onChange={handleChangeCheckInValue} />}
                                                 </div>
                                                 <div className='check-out-container'>
                                                     <p>Check Out</p>
                                                     {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
-                                                    {showInput && <input type="date" value={inputValue} onChange={handleChange} />}
+                                                    {showInput && <input type="date" value={inputCheckOutValue} onChange={handleChangeCheckOutValue} />}
                                                 </div>
                                                 <div className='btn-search-container'>
                                                     <button className='btn-search'>
