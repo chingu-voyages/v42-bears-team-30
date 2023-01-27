@@ -1,3 +1,14 @@
+.top-rated-rooms {
+    transition: transform .6s;
+}
+
+.top-rated-rooms:hover {
+    cursor: pointer;
+    -ms-transform: scale(1.1); /* IE 9 */
+    transform: scale(1.1); 
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+}
+
 .top-rated-cards {
     display: flex;
     flex-wrap: wrap;

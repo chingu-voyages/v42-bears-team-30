@@ -21,6 +21,17 @@
     width: 120px;
 }
 
+.card-room-container {
+    transition: transform .6s;
+}
+
+.card-room-container:hover {
+    cursor: pointer;
+    -ms-transform: scale(1.1); /* IE 9 */
+    transform: scale(1.1); 
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+}
+
 .cards-rooms-available {
     align-items: center;
     display: flex;
