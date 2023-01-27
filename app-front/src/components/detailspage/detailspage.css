@@ -167,7 +167,8 @@
 
 .details-right h2 {
     color: #fff;
-    background: #a45252;
+    background: #0FE18B;
+    border-radius: 20px;
     font-size: 1em;
     font-weight: bold;
     padding: 8px 10px;
@@ -180,7 +181,7 @@
 }
 
 .details-right .btn-reserve {
-    background-color: #E1AC0F;
+    background-color: #0FB0E1;
     border-radius: 40px;
     color: white;
     cursor: pointer;

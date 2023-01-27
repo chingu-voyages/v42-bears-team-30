@@ -25,8 +25,21 @@ function Homepage() {
                 <Navbar />
                 <div className='find-room-container'>
                     <div className='find-room-text'>
-                        <h2 className='find-room-title'>Find</h2>
-                        <p className='find-room-paragraph'>Rooms</p>
+                    <div class="wrapper one">
+                        <div class="drop-main">
+                            <h2 className='find-room-title'>
+                                <div class="d">F</div>
+                                <div class="r">i</div>
+                                <div class="o">n</div>
+                                <div class="p">d</div>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="wrapper two">
+                        <div class="neon">
+                            <p className='find-room-paragraph'>Rooms</p>
+                        </div>
+                    </div>
                     </div>
                     <div className='find-room-forms'>
                         <div className='check-in-container'>
