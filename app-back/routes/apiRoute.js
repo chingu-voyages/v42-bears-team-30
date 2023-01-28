@@ -1,5 +1,6 @@
 const express = require('express');
 const {loginUserClient,registerUserClient} = require('../controller/AuthClientController');
+const { getRoomApi } = require('../controller/RoomController');
 //const { protection } = require('../middleware/auth');
 
 const router = express.Router();
@@ -8,5 +9,9 @@ const router = express.Router();
 
 router.post('/login/client', loginUserClient);
 router.post('/register/client', registerUserClient)
+
+//room 
+
+router.get('/room',getRoomApi)
 
 module.exports = router;

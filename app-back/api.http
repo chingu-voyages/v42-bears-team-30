@@ -12,3 +12,7 @@ Content-Type: 'application/json'
     "phoneNumber":"+22345667777",
     "password":"test1234",
 }
+
+
+###
+GET http://localhost:5000/api/room

@@ -1,19 +1,17 @@
+{{> modal}}
 <div class="rooms">
+
     <div class="rooms-content">
         <div class="rooms-content-left">
             <h1>Rooms</h1>
-            <!--
-            <h2>User : {{user}}</h2>
-            <p>seesion ID: {{sessionId}}</p>
-            <p>Age cookies: {{cookiesAge}}</p>
-            -->
+            
         </div>
         <div class="rooms-content-right">
-            <button class="btn">+</button>
+            <button data-target="modal1" class=" btn modal-trigger">+</button>
         </div>
     </div>
     <div class="rooms-list">
-        {{test}}
+        
         <table class="responsive-table highlight">
 
             <thead>
@@ -42,4 +40,11 @@
 
       </table>
     </div>
+
+    {{#each data}}
+        <p>{{description}}</p>
+        {{#each img}}
+        <img src={{this}} alt="image" />
+        {{/each}}
+    {{/each}}
 </div>

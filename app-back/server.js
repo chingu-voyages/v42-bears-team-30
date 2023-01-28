@@ -11,6 +11,10 @@ const {engine} = require('express-handlebars');
 const session = require('express-session')
 const passport = require('passport')
 const flash = require('connect-flash');
+const sassMiddleware = require('node-sass-middleware');
+const path = require('path');
+const winston = require('winston');
+
 //load config
 require("dotenv").config({ path: "./config/config.env" });
 
@@ -49,6 +53,16 @@ app.use(passport.session());
 
 // Connect flash
 app.use(flash());
+
+//sass middleware
+app.use(sassMiddleware({
+  /* Options */
+  src: __dirname,
+  dest: path.join(__dirname, 'public'),
+  debug: true,
+  outputStyle: 'compressed',
+  log: function (severity, key, value) { winston.log(severity, 'node-sass-middleware   %s : %s', key, value); }
+}));
 
 
 //style (the css and js that we use)

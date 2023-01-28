@@ -1,0 +1,86 @@
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Room</h4>
+      {{#if errors}}
+        <p>{{errors}}</p>
+      {{/if}}
+        {{!-- form --}}
+        <form action="/room" method="post" enctype="multipart/form-data">
+          <div class="row">
+
+            {{!-- room number input --}}
+            <div class="input-field col s12">
+              <input 
+                id="roomNumber" 
+                type="text" 
+                class="validate"
+                name="roomNumber"
+                >
+              <label for="roomNumber">Room number</label>
+            </div>
+            {{!-- description --}}
+            <div class="input-field col s12">
+              <textarea 
+                id="textarea2" 
+                class="materialize-textarea"
+                name="description" 
+                ></textarea>
+              <label for="textarea2">Textarea</label>
+            </div>
+            {{!-- guest --}}
+            <div class="input-field col s12">
+              <input 
+                id="guest" 
+                type="number" 
+                class="validate"
+                name="guest"
+                >
+              <label for="guest">Guest</label>
+            </div>
+
+            {{!-- Rent --}}
+            <div class="input-field col s12">
+              <input 
+                id="rent" 
+                type="number" 
+                class="validate"
+                name="rent"
+                >
+              <label for="rent">Rent</label>
+            </div>
+            {{!-- file img --}}
+
+            <div class="file-field input-field col s12">
+
+              <div class="btn">
+                <span>File</span>
+                <input
+                  type="file"
+                  name="images"
+                  title="images"
+                  multiple
+                  
+                    >
+              </div>
+
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload one or more files">
+              </div>
+
+            </div>
+          </div>
+        
+      
+      
+    </div>
+
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-red red btn-flat" style="color: white;">Cancel</a>
+        <button type="submit" class="{{#if errors}}''{{else}}'modal-close'{{/if}}btn waves-red">Add</button>
+      </div>
+      </form>
+    {{!-- end modal content --}}
+    
+      
+    
+  </div>

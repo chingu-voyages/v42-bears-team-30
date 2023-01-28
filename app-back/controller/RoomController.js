@@ -1,14 +1,70 @@
-const getRoom = (req,res) => {
-    //res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-    console.log("sesion",req.session);
-    res.render('room/room',{
-        title: 'Book room',
-        user: req.user.username,
-        email: req.user.email,
-        sessionId: req.sessionID,
-        cookiesAge: req.session.cookie.maxAge
-    })
+const Room = require("../model/Room");
+
+const getRoom =  (req,res) => {
+    Room.find({})
+        .lean()// to get a json object (instead of a mongoose one)
+        .exec((err,data) =>{
+            if (err) throw err
+            res.render('room/room',{
+                title: 'Book room',
+                user: req.user.username,
+                email: req.user.email,
+                data:data
+            })
+
+        })
 
 }
 
-module.exports = {getRoom}
+const addRoom = (req,res) => {
+    const {roomNumber,description,guest,rent} = req.body;
+    //const {filename} = req.file;
+    const errors = []
+    if(roomNumber === ''){
+        errors.push({message : "Error "})
+    }
+    if(errors.length > 0){
+        res.render('room/room',{
+            errors:errors
+        })
+    }else{
+        let imgRoom = req.files.map(img =>{
+            let result = `/uploads/images/${img.filename}`
+            return result
+        }  )
+        console.log("img Room",imgRoom);
+        const room = new Room({
+            roomNumber: roomNumber,
+            description:description,
+            guest:guest,
+            rent:rent,
+            img: imgRoom
+    
+        })
+    
+         room.save();
+         res.render('room/room')
+    }
+        console.log("body room",req.body);
+        //console.log("file",req.files)
+
+    
+    
+}
+
+
+
+//API 
+
+const getRoomApi =  (req,res) => {
+    Room.find({})
+        .lean()// to get a json object (instead of a mongoose one)
+        .exec((err,data) =>{
+            if (err) throw err
+            res.json({"status": "200",data:data})
+
+        })
+
+}
+
+module.exports = {getRoom,addRoom,getRoomApi}

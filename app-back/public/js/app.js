@@ -32,5 +32,11 @@ function toggleTypeInput(){
 }
 
 $(document).ready(function(){
+    //sidenav
     $('.sidenav').sidenav();
+    //modal 
+    $('.modal').modal();
+    //textArea input
+    $('input#input_text, textarea#textarea2').characterCounter()
+
   });

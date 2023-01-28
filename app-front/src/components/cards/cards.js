@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import loveIcon from '../../assets/icons/love-icon.png';
 import bedIcon from '../../assets/icons/bed-icon.png';
@@ -9,24 +9,51 @@ import petIcon from '../../assets/icons/pet-icon.png';
 import room1 from '../../assets/images/rooms/room-1.png';
 import room2 from '../../assets/images/rooms/room-2.png';
 import room3 from '../../assets/images/rooms/room-3.png';
-
+import axios from 'axios'
+import host,{getAllRoom} from '../../utils/ApiRoute'
 import './cards.css';
 import LoveButton from '../loveButton/loveButton';
 
 function Cards() {
+    const [rooms,setRooms] = useState(null)
+
+    useEffect(() => {
+        axios.get(getAllRoom)
+            .then(({data}) =>{
+                setRooms(data.data)
+                console.log("data",data.data);
+                
+
+            })
+
+    },[])
+    console.log("rooms",rooms);
+
     const cards = [1,2,3,4,5,6]
     const navigate = useNavigate();
+    const getOneRoom = ( id) => {
+        navigate( `/room/${id}`)
+
+    }
     return (
         <div className='rooms-available container'>
             <div className='rooms-available-title'>
                 <h2>Our room availables</h2>
             </div>
+            {rooms === null ? <div>Rien</div>: 
+            <div>{rooms.map(room => (
+                        <div key={room._id}>
+                                    <img src={`${host}${room.img1}`} alt="room-img"/>
+                        </div>
+            ))
+            }
+            </div>}
             <div className='cards-rooms-available'>
                 {
                     cards.map(card =>(
                         <div className='card-room' key={card}>
                             <div className='card-room-container'>
-                                <div className='card-room-top' onClick={navigate(`/room-details/${card}`)}>
+                                <div className='card-room-top' onClick={(card) =>{getOneRoom(card)}}>
                                     <img className='room-picture' src={ room3 } alt="img-room"/>
                                     <div className='love-icon'>
                                         <LoveButton />
