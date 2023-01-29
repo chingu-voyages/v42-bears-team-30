@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react';
 
+import host,{ getRoom } from '../../utils/ApiRoute';
+
 import Navbar from '../_partials/navbar/navbar_other_pages';
 
 import loveIcon from '../../assets/icons/love-icon.png';
@@ -24,7 +26,6 @@ import Footer from '../_partials/footer/footer';
 import LoveButton from '../loveButton/loveButton';
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
-import {getRoom} from '../../utils/ApiRoute'
 
 function DetailsPage() {
 
@@ -64,28 +65,34 @@ function DetailsPage() {
         <div className='details-page'>
             <Navbar />
             <div className='details-other'>
-                <div className='details-room-images'>
-                    <div className='room-img room-img-1'>
-                        <img src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cm9vbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60" alt="Room" />
-                    </div>
-                    <div className='room-img room-img-2'>
-                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Room" />
-                    </div>
-                    <div className='room-img room-img-3'>
-                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60" alt="Room" />
-                    </div>
-                    <div className='room-img room-img-4'>
-                        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60" alt="Room" /> 
-                    </div>
-                    <div className='room-img room-img-5'>
-                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Room" />
-                    </div>
-                </div>
+                {roomDetail === null
+                    ? <div>No information</div>
+                    :   <div className='details-room-images'>
+                            <div className='room-img room-img-1'>
+                                <img src={`${host}${roomDetail.img[0]}`} alt="Not disponible" />
+                            </div>
+                            <div className='room-img room-img-2'>
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Not disponible" />
+                            </div>
+                            <div className='room-img room-img-3'>
+                                <img src={`${host}${roomDetail.img[1]}`} alt="Not disponible" />
+                            </div>
+                            <div className='room-img room-img-4'>
+                                <img src={`${host}${roomDetail.img[2]}`} alt="Not disponible" /> 
+                            </div>
+                            <div className='room-img room-img-5'>
+                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Not disponible" />
+                            </div>
+                        </div>  
+                }
                 <div className='details-description'>
                     <div className='details-left'>
                         <div className='details-title'>
                             <div className='details-title-left'>
-                                <h2>Well Furnished Apartement</h2>
+                                {roomDetail === null
+                                    ? <div>No information</div>
+                                    : <h2>{roomDetail.roomNumber}</h2>
+                                }
                                 <p>101 BT-30 Chingu</p>
                             </div>
                             <LoveButton />
@@ -122,16 +129,10 @@ function DetailsPage() {
                         </div>
                         <div className='room-description'>
                             <h3>Room description</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                                Commodi corrupti cupiditate provident distinctio, aspernatur impedit minima, 
-                                ipsam ullam quod amet minus tempore autem quaerat libero blanditiis dolor nihil. Sed, dolor.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                                Commodi corrupti cupiditate provident distinctio, aspernatur impedit minima, 
-                                ipsam ullam quod amet minus tempore autem quaerat libero blanditiis dolor nihil. Sed, dolor.
-                            </p>
+                            {roomDetail === null
+                                ? <div>No description</div>
+                                : <p>{roomDetail.description}</p>
+                            }
                         </div>
                         <div className='offered-details'>
                             <h3>Offered Amenities</h3>
@@ -175,11 +176,16 @@ function DetailsPage() {
                         </div>
                     </div>
                     <div className='details-right'>
-                        <h2>$ 1000 - $ 2000</h2>
+                        <h2>$100 - $300</h2>
                         <hr />
-                        <p>Short period: <span>$ 1000</span></p>
-                        <p>Medium period: <span>$ 2000</span></p>
-                        <p>Long period: <span>$ 2000</span></p>
+                        <p>Short period: 
+                            {roomDetail === null
+                                ? <span>No description</span>
+                                : <span>${roomDetail.rent} </span>
+                            }
+                            <b>per day</b>
+                        </p>
+                       
                         <div className='btn-reserve' onClick={() => setIsOpen(true)}>
                             <a className='btn-reserve'>Reserve now</a>
                         </div>
@@ -216,8 +222,19 @@ function DetailsPage() {
                                                 </div>
                                             </div>
                                             <br />
-                                            <p className='total-person'>Max number person: <span className='number'>10</span></p>
-                                            <p className='total-cost'>Total cost: <span className='price'>$ 2000</span></p>
+                                            <p className='total-person'>Max number person: 
+                                                {roomDetail === null
+                                                    ? <div>No description</div>
+                                                    :       <span className='number'>{roomDetail.guest}</span>
+                                                }
+                                            </p>
+                                            <p className='total-cost'>Total cost:  
+                                                {roomDetail === null
+                                                    ? <div>No description</div>
+                                                    : <span className='price'>${roomDetail.rent} </span>
+                                                }
+                                                <b>per day</b>
+                                            </p>
                                             <div className='btn-reserve'>
                                                 <a className='btn-reserve'>Booking now</a>
                                             </div>
