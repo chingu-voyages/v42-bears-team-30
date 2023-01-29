@@ -173,6 +173,17 @@ table {
     font-weight: bold;
 }
 
+.responsive-table {
+    font-size: 0.8em;
+}
+
+.modal-footer .btn-success {
+    background-color: #0FE18B;
+    border: none;
+    color: white;
+    padding: 10px 26px;
+}
+
 /* Rooms */
 .rooms-content {
     display: flex;
@@ -181,5 +192,10 @@ table {
 
 .rooms-content-right .btn {
     margin-top: 2.4em;
+}
+
+.rooms img {
+    height: 100px;
+    max-width: 100px;
 }
 

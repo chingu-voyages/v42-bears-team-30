@@ -16,10 +16,11 @@
 
             <thead>
                 <tr>
-                    <th>Nb guests max</th>
                     <th>Room number</th>
+                    <th>Photos</th>
                     <th>Room description</th>
                     <th>Rent</th>
+                    <th>Total guests</th>
                     <th>Availability</th>
                     <th>Booked by</th>
                 </tr>
@@ -29,7 +30,12 @@
                 {{#each data}}
                 <tr>
                     <td></td>
-                    <td></td>
+                    <td>
+                        {{#each img}}
+                            <img src={{this}} alt="image" />
+                        {{/each}}
+                    </td>
+                    <td>{{description}}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -41,10 +47,4 @@
       </table>
     </div>
 
-    {{#each data}}
-        <p>{{description}}</p>
-        {{#each img}}
-        <img src={{this}} alt="image" />
-        {{/each}}
-    {{/each}}
 </div>

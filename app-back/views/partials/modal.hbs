@@ -25,7 +25,7 @@
                 class="materialize-textarea"
                 name="description" 
                 ></textarea>
-              <label for="textarea2">Textarea</label>
+              <label for="textarea2">Description</label>
             </div>
             {{!-- guest --}}
             <div class="input-field col s12">
@@ -35,7 +35,7 @@
                 class="validate"
                 name="guest"
                 >
-              <label for="guest">Guest</label>
+              <label for="guest">Total guests</label>
             </div>
 
             {{!-- Rent --}}
@@ -59,8 +59,7 @@
                   name="images"
                   title="images"
                   multiple
-                  
-                    >
+              >
               </div>
 
               <div class="file-path-wrapper">
@@ -76,7 +75,7 @@
 
     <div class="modal-footer">
         <a class="modal-close waves-effect waves-red red btn-flat" style="color: white;">Cancel</a>
-        <button type="submit" class="{{#if errors}}''{{else}}'modal-close'{{/if}}btn waves-red">Add</button>
+        <button type="submit" class="btn-success {{#if errors}}''{{else}}'modal-close'{{/if}}btn waves-red">ADD</button>
       </div>
       </form>
     {{!-- end modal content --}}
