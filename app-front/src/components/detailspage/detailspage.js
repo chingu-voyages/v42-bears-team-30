@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import Navbar from '../_partials/navbar/navbar_other_pages';
 
@@ -22,16 +22,32 @@ import room1 from '../../assets/images/rooms/room-1.png';
 import './detailspage.css';
 import Footer from '../_partials/footer/footer';
 import LoveButton from '../loveButton/loveButton';
+import axios from 'axios'
+import {useParams} from 'react-router-dom'
+import {getRoom} from '../../utils/ApiRoute'
 
 function DetailsPage() {
 
-
+    const {id} = useParams()
     const [isOpen, setIsOpen] = useState(false);
     const [showInput, setShowInput] = useState(false);
     
     const [inputCheckInValue, setInputCheckInValue] = useState('');
     const [inputCheckOutValue, setInputCheckOutValue] = useState('');
 
+    const [roomDetail,setRoomDetail]= useState(null)
+    console.log("id: ",id)
+    useEffect(() => {
+        axios.get(`${getRoom}/${id}`)
+            .then(({data}) => {
+                setRoomDetail(data.data)
+                
+            })
+            .catch(err => console.log("error",err))
+
+
+    },[id])
+    console.log('room',roomDetail)
     const handleClick = () => {
         setShowInput(true);
     }

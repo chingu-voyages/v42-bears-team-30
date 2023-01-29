@@ -67,4 +67,20 @@ const getRoomApi =  (req,res) => {
 
 }
 
-module.exports = {getRoom,addRoom,getRoomApi}
+const getOneRoom = (req,res) => {
+    
+    try {
+        Room.findById(req.params.id,(err,room) => {
+            if(err) res.json({status: "500",message: err.message})
+            if(room){
+                res.json({status:"200",data: room})
+            }else{
+                res.json({status: "404",message: "room not found"})
+            }
+        })
+    } catch (error) {
+        res.json({status: "500",message: error.message})
+    }
+}
+
+module.exports = {getRoom,addRoom,getRoomApi,getOneRoom}

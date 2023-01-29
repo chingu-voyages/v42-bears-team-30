@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
-import host,{ getAllRoom } from '../../utils/ApiRoute';
+import host,{ getRoom } from '../../utils/ApiRoute';
 import './cards.css';
 
 import bedIcon from '../../assets/icons/bed-icon.png';
@@ -17,7 +17,7 @@ function Cards() {
     const [rooms,setRooms] = useState(null)
 
     useEffect(() => {
-        axios.get(getAllRoom)
+        axios.get(getRoom)
             .then(({data}) =>{
                 setRooms(data.data)
             })
