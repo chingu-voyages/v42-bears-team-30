@@ -40,21 +40,20 @@ function Cards() {
             <div className='rooms-available-title'>
                 <h2>Our room availables</h2>
             </div>
-            {rooms === null ? <div>Rien</div>: 
-            <div>{rooms.map(room => (
-                        <div key={room._id}>
-                                    <img src={`${host}${room.img1}`} alt="room-img"/>
-                        </div>
-            ))
-            }
-            </div>}
-            <div className='cards-rooms-available'>
-                {
-                    cards.map(card =>(
-                        <div className='card-room' key={card}>
+            {rooms === null
+                ? <div>Rien</div>
+                : <div className="cards-rooms-available">
+                    {rooms.map(room => (
+                            room.avalaible === true &&
+                            <div key={room._id}>
+                                        <div className='card-room' key={room._id}>
                             <div className='card-room-container'>
-                                <div className='card-room-top' onClick={(card) =>{getOneRoom(card)}}>
-                                    <img className='room-picture' src={ room3 } alt="img-room"/>
+                                <div className='card-room-top' onClick={(card) =>{getOneRoom(room._id)}}>
+                                    {rooms === null ? <div>No picture</div>: 
+                                        rooms.map(room => (
+                                            <img className='room-picture' src={`${host}/${room.img}`} alt="room-img"/>
+                                        ))
+                                    }
                                     <div className='love-icon'>
                                         <LoveButton />
                                     </div>
@@ -93,13 +92,10 @@ function Cards() {
                                 </div>
                             </div>
                         </div>
-
-                    ))
-                }
-                
-                
-
-            </div>
+                            </div>
+                    ))}
+                </div>
+            }
         </div>
     )
 }
