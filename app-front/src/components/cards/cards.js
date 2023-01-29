@@ -1,17 +1,19 @@
 import React, { useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import loveIcon from '../../assets/icons/love-icon.png';
+
+import axios from 'axios';
+import host,{ getAllRoom } from '../../utils/ApiRoute';
+import './cards.css';
+
 import bedIcon from '../../assets/icons/bed-icon.png';
 import bathIcon from '../../assets/icons/bath-icon.png';
 import carIcon from '../../assets/icons/car-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
 
-import axios from 'axios'
-import host,{getAllRoom} from '../../utils/ApiRoute'
-import './cards.css';
 import LoveButton from '../loveButton/loveButton';
 
 function Cards() {
+
     const [rooms,setRooms] = useState(null)
 
     useEffect(() => {
@@ -26,6 +28,7 @@ function Cards() {
         navigate( `/room/${id}`)
 
     }
+
     return (
         <div className='rooms-available container'>
             <div className='rooms-available-title'>
