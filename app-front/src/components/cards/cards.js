@@ -6,9 +6,6 @@ import bathIcon from '../../assets/icons/bath-icon.png';
 import carIcon from '../../assets/icons/car-icon.png';
 import petIcon from '../../assets/icons/pet-icon.png';
 
-import room1 from '../../assets/images/rooms/room-1.png';
-import room2 from '../../assets/images/rooms/room-2.png';
-import room3 from '../../assets/images/rooms/room-3.png';
 import axios from 'axios'
 import host,{getAllRoom} from '../../utils/ApiRoute'
 import './cards.css';
@@ -21,15 +18,9 @@ function Cards() {
         axios.get(getAllRoom)
             .then(({data}) =>{
                 setRooms(data.data)
-                console.log("data",data.data);
-                
-
             })
-
     },[])
-    console.log("rooms",rooms);
 
-    const cards = [1,2,3,4,5,6]
     const navigate = useNavigate();
     const getOneRoom = ( id) => {
         navigate( `/room/${id}`)
@@ -46,13 +37,14 @@ function Cards() {
                     {rooms.map(room => (
                         //room.avalaible === true &&
                         <div key={room._id}>
+                            <div className='love-icon'>
+                                <LoveButton />
+                            </div>
                             <div className='card-room' key={room._id}>
                                 <div className='card-room-container'>
                                     <div className='card-room-top' onClick={(card) => {getOneRoom(room._id)}}>
                                         <img key={room._id} className='room-picture' src={`${host}${room.img[0]}`} alt="room-img"/>
-                                        <div className='love-icon'>
-                                            <LoveButton />
-                                        </div>
+                                        
                                         <div className='room-price'>
                                             <div className='price'>
                                                 <h4>$1000 - 5000 USD</h4>
