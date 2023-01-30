@@ -28,7 +28,7 @@ const Register = ({setShowRegister}) => {
     const handleSubmit = async (values,{setErrors}) => {
         try {
             const {data} = await axios.post(registerUserRoute,values)
-            console.log("data",data);
+            
             
             if(data.body === 'email'){
                 setErrors({ email: data.message})
