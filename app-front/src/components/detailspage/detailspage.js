@@ -85,8 +85,10 @@ function DetailsPage() {
                     <div className='details-left'>
                         <div className='details-title'>
                             <div className='details-title-left'>
+                                
                                 <h2>Well Furnished Apartement</h2>
                                 <p>101 BT-30 Chingu</p>
+                    
                             </div>
                             <LoveButton />
                         </div>

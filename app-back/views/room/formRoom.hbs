@@ -1,0 +1,103 @@
+<div class="card">
+
+        <div class="container">
+            <h1>Add Room</h1>
+            {{#if errors}}
+                {{#each errors }}
+                    
+                
+                <div class="err-msg row" id="error-msg">
+                    <span class="col s11">{{msg}}</span>
+                    <div id="btn-alert-close" class="button col s1" >
+                        <i class="material-icons">close</i>
+                    </div>
+                </div>
+                {{/each}}
+            {{/if}}
+            
+            {{error}}
+            {{!-- form --}}
+            <form action="/room/add" method="post" enctype="multipart/form-data">
+            <div class="row">
+
+                {{!-- room number input --}}
+                <div class="input-field col s12">
+                <input 
+                    id="roomNumber" 
+                    type="text" 
+                    class="validate"
+                    name="roomNumber"
+                    value={{{roomNumber}}}
+                    >
+                <label for="roomNumber">Room number</label>
+               
+         
+                </div>
+                {{!-- description --}}
+                <div class="input-field col s12">
+                <textarea 
+                    id="textarea2" 
+                    class="materialize-textarea"
+                    name="description"
+                    
+                    >{{description}}</textarea>
+                <label for="textarea2">Description</label>
+
+                <span  class="error-msg"> </span>
+                </div>
+                {{!-- guest --}}
+                <div class="input-field col s12">
+                <input 
+                    id="guest" 
+                    type="number" 
+                    class="validate"
+                    name="guest"
+                    value={{{guest}}}
+                    >
+                <label for="guest">Total guests</label>
+                <span class="error-msg"> </span>
+                </div>
+
+                {{!-- Rent --}}
+                <div class="input-field col s12">
+                <input 
+                    id="rent" 
+                    type="number" 
+                    class="validate"
+                    name="rent"
+                    value={{{rent}}}
+                    >
+                <label for="rent">Rent</label>
+                <span  class="error-msg"> </span>
+                </div>
+                {{!-- file img --}}
+
+                <div class="file-field input-field col s12">
+
+                <div class="btn">
+                    <span>File</span>
+                    <input
+                    type="file"
+                    name="images"
+                    title="images"
+                    id="images"
+                    multiple
+                >
+                </div>
+                <span class="error-msg"> </span>  
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
+                
+                </div>
+            
+                <div class="right">
+                    <a class="modal-close waves-effect waves-red red btn-flat" href="/room" style="color: white;">Cancel</a>
+                    <button type="submit" class="btn-success btn waves-red">ADD</button>
+                </div>
+                </div>
+
+            </form>
+        </div>
+      
+</div>
