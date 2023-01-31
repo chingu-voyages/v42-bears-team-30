@@ -15,6 +15,8 @@ const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
 const winston = require('winston');
 
+const checkout = require('./routes/checkout');
+const test = require('./routes/test');
 //load config
 require("dotenv").config({ path: "./config/config.env" });
 
@@ -83,9 +85,15 @@ app.use('/auth',authAdmin)
 app.use('/room',roomRoute);
 app.use('/client',userClientRoute)
 app.use('/api',apiRoute);
+app.use('/createCheckout', checkout);
+app.use('/test', test);
 app.get('/',(req,res) => { 
   res.redirect('/room')
 })
+app.use('/error', function(req, res, next) {
+    res.status(404);
+    res.send('404: File Not Found');
+});
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port:  ${port}`);
 });
