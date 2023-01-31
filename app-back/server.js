@@ -18,7 +18,6 @@ const path = require('path');
 const winston = require('winston');
 
 const checkout = require('./routes/checkout');
-const test = require('./routes/test');
 //load config
 require("dotenv").config({ path: "./config/config.env" });
 
@@ -90,7 +89,6 @@ app.use('/room',roomRoute);
 app.use('/client',userClientRoute)
 app.use('/api',apiRoute);
 app.use('/createCheckout', checkout);
-app.use('/test', test);
 app.get('/',(req,res) => { 
   res.redirect('/room')
 })
