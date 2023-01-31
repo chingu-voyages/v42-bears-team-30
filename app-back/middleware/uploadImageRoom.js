@@ -13,5 +13,6 @@ var storage = multer.diskStorage({
 
 var stores = multer({ 
     storage: storage,
+  
  });
 module.exports = stores;

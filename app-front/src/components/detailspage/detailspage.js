@@ -194,7 +194,7 @@ function DetailsPage() {
                                 <div className='reserve-modal'>
                                     <div className='reserve-content'>
                                         <h5>
-                                            Booking Well Furnished Apartement
+                                            {roomDetail.roomNumber}
                                         </h5>
                                         <button className='btn-close' onClick={() => setIsOpen(false)}></button>
                                     </div>

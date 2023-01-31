@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 
 // Load User model
 const AdminUser = require('../model/AdminUser');
-
 module.exports = function(passport) {
     passport.use(
         new LocalStrategy({ 
