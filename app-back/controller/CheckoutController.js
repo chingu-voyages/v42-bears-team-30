@@ -28,9 +28,7 @@ const createCheckoutSession = async (req, res) => {
       success_url: 'http://localhost:5000/', // Change this to the appropriate routes, for frontend team
       cancel_url: 'http://localhost:5000/error'
     });
-    // res.redirect(303, session.url);
-    alert('Booking successful');
-    res.status(200)
+    res.redirect(303, session.url);
   } catch(e) {
     console.log("error in payment");
     res.status(500).json({ error: e.message })
