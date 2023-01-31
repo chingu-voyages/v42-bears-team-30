@@ -1,4 +1,4 @@
-const {body} = require('express-validator');
+const {body,check} = require('express-validator');
 //load user modal
 const adminUser = require('../model/AdminUser')
 
@@ -51,4 +51,20 @@ const loginCheck = () => {
     ]
 }
 
-module.exports = {registerCheck,loginCheck}
+//const {roomNumber,description,guest,rent} = req.body;
+
+const roomCheck = () => {
+  return [
+    body('roomNumber')
+        .notEmpty().withMessage('RoomNumber field is required'),
+    body('description')
+        .notEmpty().withMessage('Description field is required'),
+    body('guest')
+        .notEmpty().withMessage('Guest field is required'),
+    body('rent')
+        .notEmpty().withMessage('Rent field is required'),
+    
+
+  ]
+}
+module.exports = {registerCheck,loginCheck,roomCheck}

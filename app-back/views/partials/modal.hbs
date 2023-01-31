@@ -2,8 +2,11 @@
     <div class="modal-content">
       <h4>Room</h4>
       {{#if errors}}
-        <p>{{errors}}</p>
+        <p>{{#each errors}}</p>
+        <p>{{this}}</p>
+        {{/each}}
       {{/if}}
+      {{test}}
         {{!-- form --}}
         <form action="/room" method="post" enctype="multipart/form-data">
           <div class="row">
@@ -17,6 +20,10 @@
                 name="roomNumber"
                 >
               <label for="roomNumber">Room number</label>
+              
+                <span  class="error-msg"> </span>
+              
+              
             </div>
             {{!-- description --}}
             <div class="input-field col s12">
@@ -26,6 +33,8 @@
                 name="description" 
                 ></textarea>
               <label for="textarea2">Description</label>
+
+              <span  class="error-msg"> </span>
             </div>
             {{!-- guest --}}
             <div class="input-field col s12">
@@ -36,6 +45,7 @@
                 name="guest"
                 >
               <label for="guest">Total guests</label>
+              <span class="error-msg"> </span>
             </div>
 
             {{!-- Rent --}}
@@ -47,6 +57,7 @@
                 name="rent"
                 >
               <label for="rent">Rent</label>
+              <span  class="error-msg"> </span>
             </div>
             {{!-- file img --}}
 
@@ -58,14 +69,15 @@
                   type="file"
                   name="images"
                   title="images"
+                  id="images"
                   multiple
               >
               </div>
-
+              <span class="error-msg"> </span>  
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text" placeholder="Upload one or more files">
               </div>
-
+              
             </div>
           </div>
         

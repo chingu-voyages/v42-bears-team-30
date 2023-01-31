@@ -7,7 +7,9 @@ const bodyParser = require('body-parser')
 const connectDB = require('./config/db')
 const morgan = require('morgan')
 const cors = require("cors");
-const {engine} = require('express-handlebars');
+//const {engine} = require('express-handlebars');
+var handlebars = require('express-handlebars');
+const {engine} = handlebars;
 const session = require('express-session')
 const passport = require('passport')
 const flash = require('connect-flash');
@@ -68,6 +70,9 @@ app.use(sassMiddleware({
 //style (the css and js that we use)
 app.use(express.static(__dirname + '/public'));
 //handlebars config 
+
+
+
 app.engine('.hbs', engine({defaultLayout : 'main',extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', './views');

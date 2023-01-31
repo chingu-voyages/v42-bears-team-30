@@ -1,13 +1,16 @@
-{{> modal}}
-<div class="rooms">
 
+{{> modal}}
+{{!-- end modal --}}
+
+<div class="rooms">
+    
     <div class="rooms-content">
         <div class="rooms-content-left">
             <h1>Rooms</h1>
             
         </div>
         <div class="rooms-content-right">
-            <button data-target="modal1" class=" btn modal-trigger">+</button>
+            <a href="/room/add" class=" btn modal-trigger">+</a>
         </div>
     </div>
     <div class="rooms-list">
@@ -23,6 +26,7 @@
                     <th>Total guests</th>
                     <th>Availability</th>
                     <th>Booked by</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -40,6 +44,22 @@
                     <td>{{guest}}</td>
                     <td>{{avalaible}}</td>
                     <td>{{booked}}</td>
+                    <td class="action">
+                        
+                            <span 
+                                class="edit material-icons">
+                            edit
+                            </span>
+                        
+                        
+                            <a href="/room/delete/{{_id}}"><span 
+                                class="delete material-icons"
+                            >delete
+                            </span></a>
+                        
+                        
+                        
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>
