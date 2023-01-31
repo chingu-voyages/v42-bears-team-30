@@ -18,7 +18,7 @@ const Login = ({setShowLogout}) => {
         // alert(JSON.stringify(values))
         try {
             const {data} = await axios.post(loginUserRoute,values);
-            console.log("data",data)
+            
             if(data.body === 'email'){
                 setErrors({ email: data.message})
             }
@@ -29,7 +29,6 @@ const Login = ({setShowLogout}) => {
                 delete data.status
                 localStorage.setItem("user", JSON.stringify(data));
             }
-            //console.log("status",status)
         
             setShowLogout(true);
 

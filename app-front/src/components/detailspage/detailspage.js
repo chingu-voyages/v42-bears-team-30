@@ -37,18 +37,18 @@ function DetailsPage() {
     const [inputCheckOutValue, setInputCheckOutValue] = useState('');
 
     const [roomDetail,setRoomDetail]= useState(null)
-    console.log("id: ",id)
+    
     useEffect(() => {
         axios.get(`${getRoom}/${id}`)
             .then(({data}) => {
                 setRoomDetail(data.data)
                 
             })
-            .catch(err => console.log("error",err))
+            // .catch(err => console.log("error",err))
 
 
     },[id])
-    console.log('room',roomDetail)
+    
     const handleClick = () => {
         setShowInput(true);
     }
