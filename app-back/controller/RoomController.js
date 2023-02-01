@@ -1,11 +1,13 @@
 const Room = require("../model/Room");
 const {validationResult} = require('express-validator');
+const fs = require('fs')
 
 const getRoom =  (req,res) => {
-    Room.find({})
+    Room.find({},null,{sort: { createdAt: -1 }})
         .lean()// to get a json object (instead of a mongoose one)
         .exec((err,data) =>{
             if (err) throw err
+            
             res.render('room/room',{
                 title: 'Book room',
                 user: req.user.username,
@@ -19,7 +21,9 @@ const getRoom =  (req,res) => {
 
 const goToFormRoom = (req,res) => {
     res.render('room/formRoom',{
-        title:"Add Room"
+        title:"Add Room",
+        action: 'Add',
+        routeAction: `room/add`
     })
 
 }
@@ -34,7 +38,7 @@ const addRoom = (req,res) => {
     
     const errors = validationResult(req)
     let error = req.flash('error-file')
-    console.log('file error',error)
+    
     if(!errors.isEmpty()){
         
         res.render('room/formRoom',{
@@ -53,7 +57,7 @@ const addRoom = (req,res) => {
             let result = `/uploads/images/${img.filename}`
             return result
         })
-        console.log("img Room",imgRoom);
+        
         const room = new Room({
             roomNumber: roomNumber,
             description:description,
@@ -65,19 +69,7 @@ const addRoom = (req,res) => {
         
         room.save();
         res.redirect('/room')
-        // Room.find({})
-        //     .lean()// to get a json object (instead of a mongoose one)
-        //     .exec((err,data) =>{
-        //         if (err) throw err
-        //         res.render('room/room',{
-        //             title: 'Book room',
-        //             user: req.user.username,
-        //             email: req.user.email,
-        //             data:data
-        //         })
-
-        //     })
-            
+     
     }
     
    
@@ -90,11 +82,79 @@ const addRoom = (req,res) => {
 
 const deleteRoom = (req,res) => {
     const {id} = req.params;
-    Room.findByIdAndRemove(id,(err) => {
+    
+    Room.findByIdAndRemove(id,(err,data) => {
+        
+        data.img.forEach(image => {
+            fs.unlink(`public/${image}`,(fsError) => {
+                if(fsError){
+                    console.log("file error")
+                }else{
+                    console.log('Delete successfully')
+                }
+            })
+        })
         if(err) throw err
         res.redirect('/room');
     })
 }
+
+
+const goEditRoom = (req,res) => {
+    const {id} =req.params;
+    Room.findById(id,(err,data) =>{ 
+        if(err) res.redirect('/room')
+        if(!data){
+            res.redirect('/room')
+        }else{
+            const {_id,roomNumber,description,guest,rent} = data;
+            res.render('room/formRoom',{
+
+                roomNumber,description,guest,rent,
+                action: 'Edit',
+                routeAction: `/room/edit/${_id}`
+
+            })
+        }
+    })
+
+}
+
+const updateRoom = (req,res) => {
+    
+   
+    const errors = validationResult(req);
+    let error = req.flash('error-file');
+    const  {id} =req.params;
+    
+    // if(!errors.isEmpty()){
+    //     const {roomNumber,description,guest,rent} = req.body;
+        
+    //     res.render('room/formRoom',{
+    //         title: 'Add Room',
+    //         roomNumber,description,guest,rent,
+    //         errors:errors.array(),
+    //         error
+
+    //     })
+        
+    //     //res.json({ errors: errors.array() });
+    // }else{
+        console.log('Id',id)
+        console.log('body',req.body)
+        console.log('body number',req.body.roomNumber)
+
+        Room.findByIdAndUpdate(id,req.body,(err,room) => {
+            if(err){
+                console.log("err update",err);
+            }else{
+                res.redirect('/room')
+            }
+                
+            
+        })
+    
+} 
 
 //API 
 
@@ -125,4 +185,13 @@ const getOneRoom = (req,res) => {
     }
 }
 
-module.exports = {getRoom,addRoom,getRoomApi,getOneRoom,goToFormRoom,deleteRoom}
+module.exports = {
+    getRoom,
+    addRoom,
+    getRoomApi,
+    getOneRoom,
+    goToFormRoom,
+    deleteRoom,
+    goEditRoom,
+    updateRoom
+}
