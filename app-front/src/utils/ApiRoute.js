@@ -1,4 +1,4 @@
-const host = 'http://localhost:5000'
+const host = 'https://chingu-bt-30-back.onrender.com'
 
 export default host;
 export const registerUserRoute = `${host}/api/register/client`
