@@ -50,7 +50,7 @@ function Cards() {
                                         
                                         <div className='room-price'>
                                             <div className='price'>
-                                                <h4>$1000 - 5000 USD</h4>
+                                                <h4>${room.rent} - ${room.rent + 200}</h4>
                                             </div>
                                             <div className='price-style'>
                                                 <p>....</p>
