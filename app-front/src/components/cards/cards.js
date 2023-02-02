@@ -60,7 +60,7 @@ function Cards() {
                                     <div className='card-room-bottom'>
                                         <div className='room-title'>
                                             <h4 className='room-name'>
-                                                Beach House Apartment
+                                                {room.roomNumber}
                                             </h4>
                                             <p>Comfort room</p>
                                         </div>
