@@ -92,10 +92,14 @@ app.use('/createCheckout', checkout);
 app.get('/',(req,res) => { 
   res.redirect('/room')
 })
+app.use('/success', (req, res, next) => {
+  res.status(400).send({success: true}).redirect('/');
+})
+
 app.use('/error', function(req, res, next) {
     res.status(404);
     res.send('404: File Not Found');
-});
+})
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port:  ${port}`);
 });
