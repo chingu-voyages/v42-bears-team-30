@@ -46,7 +46,7 @@ function Cards() {
                             <div className='card-room' key={room._id}>
                                 <div className='card-room-container'>
                                     <div className='card-room-top' onClick={(card) => {getOneRoom(room._id)}}>
-                                        <img key={room._id} className='room-picture' src={`${host}${room.img[0]}`} alt="room-img"/>
+                                        <img key={room._id} className='room-picture' src={`${host}${room.img[0]}`} alt="Sorry, this image is unavailable !"/>
                                         
                                         <div className='room-price'>
                                             <div className='price'>

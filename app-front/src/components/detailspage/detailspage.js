@@ -69,19 +69,19 @@ function DetailsPage() {
                     ? <div>No information</div>
                     :   <div className='details-room-images'>
                             <div className='room-img room-img-1'>
-                                <img src={`${host}${roomDetail.img[0]}`} alt="Not disponible" />
+                                <img src={`${host}${roomDetail.img[0]}`} alt="Sorry, this image is unavailable !" />
                             </div>
                             <div className='room-img room-img-2'>
-                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Not disponible" />
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Sorry, this image is unavailable !" />
                             </div>
                             <div className='room-img room-img-3'>
-                                <img src={`${host}${roomDetail.img[1]}`} alt="Not disponible" />
+                                <img src={`${host}${roomDetail.img[1]}`} alt="Sorry, this image is unavailable !" />
                             </div>
                             <div className='room-img room-img-4'>
-                                <img src={`${host}${roomDetail.img[2]}`} alt="Not disponible" /> 
+                                <img src={`${host}${roomDetail.img[2]}`} alt="Sorry, this image is unavailable !" /> 
                             </div>
                             <div className='room-img room-img-5'>
-                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Not disponible" />
+                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Sorry, this image is unavailable !" />
                             </div>
                         </div>  
                 }
@@ -201,7 +201,7 @@ function DetailsPage() {
                                     <hr />  
                                     <div className='modal-room-content'>
                                         <div className='modal-content-left'>
-                                            <img src={ room1 } alt="room picture" />
+                                            <img src={`${host}${roomDetail.img[0]}`} alt="Sorry, this image is unavailable !" />
                                         </div>
                                         <div className='modal-content-right'>
                                             <div className='check-room-forms'>
