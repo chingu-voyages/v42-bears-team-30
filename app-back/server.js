@@ -10,7 +10,7 @@ const cors = require("cors");
 //const {engine} = require('express-handlebars');
 var handlebars = require('express-handlebars');
 const {engine} = handlebars;
-const session = require('express-session')
+const session = require('express-session');
 const passport = require('passport')
 const flash = require('connect-flash');
 const sassMiddleware = require('node-sass-middleware');
@@ -58,14 +58,7 @@ app.use(passport.session());
 app.use(flash());
 
 //sass middleware
-app.use(sassMiddleware({
-  /* Options */
-  src: __dirname,
-  dest: path.join(__dirname, 'public'),
-  debug: true,
-  outputStyle: 'compressed',
-  log: function (severity, key, value) { winston.log(severity, 'node-sass-middleware   %s : %s', key, value); }
-}));
+
 
 
 //style (the css and js that we use)
@@ -88,7 +81,7 @@ app.use('/auth',authAdmin)
 app.use('/room',roomRoute);
 app.use('/client',userClientRoute)
 app.use('/api',apiRoute);
-app.use('/createCheckout', checkout);
+app.use('/create-checkout-session', checkout);
 app.get('/',(req,res) => { 
   res.redirect('/room')
 })

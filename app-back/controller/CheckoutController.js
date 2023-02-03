@@ -1,6 +1,10 @@
 const { isLoggedIn } = require('../middleware/auth');
 require("dotenv").config({ path: "./config/config.env" });
 const stripe = require('stripe')('sk_test_51MU9wQSA1jobDyLHXXs7nFPGJC78ar4n0lc5g0C3QeTzI9su5SFJKx2hs9IS5moKI1hrOj9x6m1HvYoYKlbPr8Tr00tV1prOn8');
+//const Stripe = require('stripe')
+
+require("dotenv").config({ path: "./config/config.env" });
+//const stripe = Stripe(process.env.TEST_STRIPE_KEY)
 
 // Create new payment session
 const createCheckoutSession = async (req, res) => {
@@ -25,10 +29,11 @@ const createCheckoutSession = async (req, res) => {
           }
         }
       ],
-      success_url: 'http://localhost:5000/success', // Change this to the appropriate routes, for frontend team
-      cancel_url: 'http://localhost:5000/error'
+      mode: 'payment',
+      success_url: `${process.env.FRONT_DOMAIN}/success-pay`, 
+      cancel_url: `${process.env.FRONT_DOMAIN}/cancel-pay`
     });
-    res.redirect(303, session.url);
+    res.send({ url: session.url});
   } catch(e) {
     console.log("error in payment");
     res.status(500).json({ error: e.message })
