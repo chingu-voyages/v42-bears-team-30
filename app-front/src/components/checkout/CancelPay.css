@@ -1,23 +1,23 @@
-.success-container {
-    background-color: #4BD92E5E;
+.cancel-container {
+    background-color: #EC0E0E5E;
     height: 500px;
 }
 
-.title-success {
-    background-color: #0FE18B73;
+.title-cancel {
+    background-color: #EC0E0E73;
     color: #ffffff;
     font-weight: bold;
     padding-top: 20px;
     text-align: center;
 }
 
-.success-container h2 {
+.cancel-container h2 {
     text-align: center;
     padding-bottom: 20px;
 }
 
-.success-container .back-link {
-    background-color: #0FE18B;
+.cancel-container .back-link {
+    background-color: #EC0E0EE0;
     color: white;
     font-weight: bold;
     left: 50%;
@@ -28,11 +28,11 @@
     transform: translateX(-50%);
 }
 
-.success-container .back-link:hover {
+.cancel-container .back-link:hover {
     opacity: 0.7;
 }
 
-.success-container footer {
+.cancel-container footer {
     position: relative;
     bottom: 0;
 }
