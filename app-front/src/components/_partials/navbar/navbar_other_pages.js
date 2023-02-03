@@ -6,6 +6,7 @@ import Auth from '../../auth/auth';
 
 import chinguLogo from '../../../assets/images/logo-chingu.png';
 import menu from '../../../assets/icons/menu.png';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -22,17 +23,24 @@ function Navbar() {
     return (
         <nav className='navbar-other-pages'>
             <div className='nav-left'>
-                <a className="logo-link" >
+                <Link className="logo-link" to="/">
                     <img src={ chinguLogo } alt="chingu-logo" />
-                </a>
+                </Link>
             </div>
             <div id="add-responsive" className='nav-right'>
                 <ul className='nav-links'>
                     <li>
-                        <a>Find a Room</a>
+                        <Link className="logo-link" to="/">
+                            Find a Room
+                        </Link>
                     </li>
                     <li>
-                        <a>Download Mobile app</a>
+                        <a onClick={() => {
+                                alert('Next Chingus could work on it :)')
+                            }}
+                        >
+                            Download Mobile app
+                        </a>
                     </li>
                     <li>
                         <Auth />

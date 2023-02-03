@@ -32,7 +32,12 @@ function Navbar() {
                         <a>Find a Room</a>
                     </li>
                     <li>
-                        <a>Download Mobile app</a>
+                        <a className='btn-link' onClick={() => {
+                                alert('Next Chingus could work on it :)')
+                            }}
+                        >
+                            Download Mobile app
+                        </a>
                     </li>
                     <li>
                         <Auth />
