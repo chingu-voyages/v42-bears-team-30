@@ -65,6 +65,14 @@ hr {
     font-weight: bold;
 }
 
+.contact-links a:hover {
+    opacity: 0.5;
+}
+
+.contact-links .yb-logo {
+    opacity: 0.7;
+}
+
 @media (width <= 1100px) {
     .footer-links {
         display: block;

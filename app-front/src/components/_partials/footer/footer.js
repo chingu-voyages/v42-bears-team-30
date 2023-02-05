@@ -50,7 +50,7 @@ function Footer() {
                             <a href='https://twitter.com/ChinguCollabs' target="_blank">
                                 <img src={ twitterLogo } alt="img-logo" />
                             </a>
-                            <a href='https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw/feed' target="_blank">
+                            <a className="yb-logo" href='https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw/feed' target="_blank">
                                 <img src={ ybLogo } alt="img-logo" width="30" height="30"/>
                             </a>
                         </div>
