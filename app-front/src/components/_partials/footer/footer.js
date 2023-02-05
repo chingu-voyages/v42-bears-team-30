@@ -6,6 +6,7 @@ import fbLogo from '../../../assets/icons/fb.png';
 import twitterLogo from '../../../assets/icons/twitter.png';
 import instagramLogo from '../../../assets/icons/instagram.png';
 import linkedinLogo from '../../../assets/icons/linkedin.png';
+import ybLogo from '../../../assets/icons/youtube.png';
 import './footer.css';
 
 function Footer() {
@@ -31,24 +32,27 @@ function Footer() {
                     <div className='company-links'>
                         <h2>Company</h2>
                         <a >About us</a> <br />
-                        <a >Legal Information</a> <br />
-                        <a >Contact us</a> <br />
-                        <a >Blogs</a>
                     </div>
                     <div className='help-links'>
                         <h2>Help center</h2>
                         <a>Find Room</a> <br />
                     </div>
                     <div className='contact-links'>
-                        <h2>Contact info</h2>
-                        <p>Phone: 123456789</p>
-                        <p>Email: bt-30@gmail.com</p>
-                        <p>Location: 101, chingu</p>
+                        <h2>Teams</h2>
+                        <a href='https://github.com/pramitsingh0' target="_blank">Prami</a> <br />
+                        <a href='https://github.com/sobebarali' target="_blank">Sobebarali</a> <br />
+                        <a href='https://github.com/Mendrika160' target="_blank">Mendes</a> <br />
+                        <a href='https://github.com/Fullfifax' target="_blank">Fullfifax</a> <br /> <br />
                         <div className='social-networks-icons'>
-                            <img src={ fbLogo } alt="img-logo" />
-                            <img src={ twitterLogo } alt="img-logo" />
-                            <img src={ instagramLogo } alt="img-logo" />
-                            <img src={ linkedinLogo } alt="img-logo" />
+                            <a href='https://www.linkedin.com/company/chingu-os' target="_blank">
+                                <img src={ linkedinLogo } alt="img-logo" />
+                            </a>
+                            <a href='https://twitter.com/ChinguCollabs' target="_blank">
+                                <img src={ twitterLogo } alt="img-logo" />
+                            </a>
+                            <a className="yb-logo" href='https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw/feed' target="_blank">
+                                <img src={ ybLogo } alt="img-logo" width="30" height="30"/>
+                            </a>
                         </div>
                     </div>
                 </div>

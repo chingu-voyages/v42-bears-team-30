@@ -35,7 +35,7 @@ function Cards() {
                 <h2>Our room availables</h2>
             </div>
             {rooms === null
-                ? <div className='text-verify'>Check your internet connection !</div>
+                ? <div className='text-verify'>Please wait ...</div>
                 : <div className="cards-rooms-available">
                     {rooms.map(room => (
                         //room.avalaible === true &&
@@ -46,11 +46,11 @@ function Cards() {
                             <div className='card-room' key={room._id}>
                                 <div className='card-room-container'>
                                     <div className='card-room-top' onClick={(card) => {getOneRoom(room._id)}}>
-                                        <img key={room._id} className='room-picture' src={`${host}${room.img[0]}`} alt="room-img"/>
+                                        <img key={room._id} className='room-picture' src={`${host}${room.img[0]}`} alt="Sorry, this image is unavailable !"/>
                                         
                                         <div className='room-price'>
                                             <div className='price'>
-                                                <h4>$1000 - 5000 USD</h4>
+                                                <h4>${room.rent} - ${room.rent + 200}</h4>
                                             </div>
                                             <div className='price-style'>
                                                 <p>....</p>
@@ -60,7 +60,7 @@ function Cards() {
                                     <div className='card-room-bottom'>
                                         <div className='room-title'>
                                             <h4 className='room-name'>
-                                                Beach House Apartment
+                                                {room.roomNumber}
                                             </h4>
                                             <p>Comfort room</p>
                                         </div>

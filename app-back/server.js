@@ -10,13 +10,14 @@ const cors = require("cors");
 //const {engine} = require('express-handlebars');
 var handlebars = require('express-handlebars');
 const {engine} = handlebars;
-const session = require('express-session')
+const session = require('express-session');
 const passport = require('passport')
 const flash = require('connect-flash');
 const sassMiddleware = require('node-sass-middleware');
 const path = require('path');
 const winston = require('winston');
 
+const checkout = require('./routes/checkout');
 //load config
 require("dotenv").config({ path: "./config/config.env" });
 
@@ -57,14 +58,7 @@ app.use(passport.session());
 app.use(flash());
 
 //sass middleware
-app.use(sassMiddleware({
-  /* Options */
-  src: __dirname,
-  dest: path.join(__dirname, 'public'),
-  debug: true,
-  outputStyle: 'compressed',
-  log: function (severity, key, value) { winston.log(severity, 'node-sass-middleware   %s : %s', key, value); }
-}));
+
 
 
 //style (the css and js that we use)
@@ -87,8 +81,17 @@ app.use('/auth',authAdmin)
 app.use('/room',roomRoute);
 app.use('/client',userClientRoute)
 app.use('/api',apiRoute);
+app.use('/create-checkout-session', checkout);
 app.get('/',(req,res) => { 
   res.redirect('/room')
+})
+app.use('/success', (req, res, next) => {
+  res.status(400).send({success: true}).redirect('/');
+})
+
+app.use('/error', function(req, res, next) {
+    res.status(404);
+    res.send('404: File Not Found');
 })
 app.listen(port, () => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on port:  ${port}`);

@@ -4,4 +4,5 @@ export default host;
 export const registerUserRoute = `${host}/api/register/client`
 export const loginUserRoute = `${host}/api/login/client`
 export const getRoom = `${host}/api/room`
+export const checkoutStripe = `${host}/create-checkout-session`
 //export const getOneRoom = `${host}/api/room/`

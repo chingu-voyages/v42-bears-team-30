@@ -38,10 +38,10 @@ function Cards() {
                         </div>
                         <div className='room-details'>
                             <div className='details'>
-                                <h4>Well Furnished Apartement</h4>
+                                <h4>Chingu-v42-Toucans-team</h4>
                             </div>
                             <div className='room-information'>
-                                <p>BT-30 Chingu</p>
+                                <p>TC-v42</p>
                             </div>
                         </div>
                     </div>
@@ -66,10 +66,10 @@ function Cards() {
                         </div>
                         <div className='room-details'>
                             <div className='details'>
-                                <h4>Well Furnished Apartement</h4>
+                                <h4>Chingu-v42-Geckos-team</h4>
                             </div>
                             <div className='room-information'>
-                                <p>BT-30 Chingu</p>
+                                <p>GK-v42</p>
                             </div>
                         </div>
                     </div>
@@ -93,10 +93,10 @@ function Cards() {
                         </div>
                         <div className='room-details'>
                             <div className='details'>
-                                <h4>Well Furnished Apartement</h4>
+                                <h4>Chingu-v42-Bears-team</h4>
                             </div>
                             <div className='room-information'>
-                                <p>BT-30 Chingu</p>
+                                <p>BT-v42</p>
                             </div>
                         </div>
                     </div>

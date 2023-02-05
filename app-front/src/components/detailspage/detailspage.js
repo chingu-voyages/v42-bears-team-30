@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 
 import host,{ getRoom } from '../../utils/ApiRoute';
-
+ import ModalBook from './ModalBook';
 import Navbar from '../_partials/navbar/navbar_other_pages';
 
 import loveIcon from '../../assets/icons/love-icon.png';
@@ -17,7 +17,7 @@ import wifiIcon from '../../assets/icons/wifi.png';
 import balconyIcon from '../../assets/icons/balcony.png';
 import batteryIcon from '../../assets/icons/battery.png';
 import callIcon from '../../assets/icons/call.png';
-import checkButton from '../../assets/icons/check.png'
+//import checkButton from '../../assets/icons/check.png'
 
 import room1 from '../../assets/images/rooms/room-1.png';
 
@@ -31,10 +31,9 @@ function DetailsPage() {
 
     const {id} = useParams()
     const [isOpen, setIsOpen] = useState(false);
-    const [showInput, setShowInput] = useState(false);
     
-    const [inputCheckInValue, setInputCheckInValue] = useState('');
-    const [inputCheckOutValue, setInputCheckOutValue] = useState('');
+    
+    
 
     const [roomDetail,setRoomDetail]= useState(null)
     
@@ -49,17 +48,9 @@ function DetailsPage() {
 
     },[id])
     
-    const handleClick = () => {
-        setShowInput(true);
-    }
+  
 
-    const handleChangeCheckInValue = (event) => {
-        setInputCheckInValue(event.target.value);
-    }
-
-    const handleChangeCheckOutValue = (event) => {
-        setInputCheckOutValue(event.target.value);
-    }
+    
 
     return (
         <div className='details-page'>
@@ -69,19 +60,19 @@ function DetailsPage() {
                     ? <div>No information</div>
                     :   <div className='details-room-images'>
                             <div className='room-img room-img-1'>
-                                <img src={`${host}${roomDetail.img[0]}`} alt="Not disponible" />
+                                <img src={`${host}${roomDetail.img[0]}`} alt="Sorry, this image is unavailable !" />
                             </div>
                             <div className='room-img room-img-2'>
-                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Not disponible" />
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Sorry, this image is unavailable !" />
                             </div>
                             <div className='room-img room-img-3'>
-                                <img src={`${host}${roomDetail.img[1]}`} alt="Not disponible" />
+                                <img src={`${host}${roomDetail.img[1]}`} alt="Sorry, this image is unavailable !" />
                             </div>
                             <div className='room-img room-img-4'>
-                                <img src={`${host}${roomDetail.img[2]}`} alt="Not disponible" /> 
+                                <img src={`${host}${roomDetail.img[2]}`} alt="Sorry, this image is unavailable !" /> 
                             </div>
                             <div className='room-img room-img-5'>
-                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Not disponible" />
+                                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Sorry, this image is unavailable !" />
                             </div>
                         </div>  
                 }
@@ -191,56 +182,11 @@ function DetailsPage() {
                         </div>
                         <div className='modal-booking'>
                             {isOpen && (
-                                <div className='reserve-modal'>
-                                    <div className='reserve-content'>
-                                        <h5>
-                                            {roomDetail.roomNumber}
-                                        </h5>
-                                        <button className='btn-close' onClick={() => setIsOpen(false)}></button>
-                                    </div>
-                                    <hr />  
-                                    <div className='modal-room-content'>
-                                        <div className='modal-content-left'>
-                                            <img src={ room1 } alt="room picture" />
-                                        </div>
-                                        <div className='modal-content-right'>
-                                            <div className='check-room-forms'>
-                                                <div className='check-in-container'>
-                                                    <p>Check In</p>
-                                                    {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
-                                                    {showInput && <input type="date" value={inputCheckInValue} onChange={handleChangeCheckInValue} />}
-                                                </div>
-                                                <div className='check-out-container'>
-                                                    <p>Check Out</p>
-                                                    {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
-                                                    {showInput && <input type="date" value={inputCheckOutValue} onChange={handleChangeCheckOutValue} />}
-                                                </div>
-                                                <div className='btn-search-container'>
-                                                    <button className='btn-search'>
-                                                        <img src={ checkButton } alt='check button' />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <p className='total-person'>Max number person: 
-                                                {roomDetail === null
-                                                    ? <div>No description</div>
-                                                    :       <span className='number'>{roomDetail.guest}</span>
-                                                }
-                                            </p>
-                                            <p className='total-cost'>Total cost:  
-                                                {roomDetail === null
-                                                    ? <div>No description</div>
-                                                    : <span className='price'>${roomDetail.rent} </span>
-                                                }
-                                                <b>per day</b>
-                                            </p>
-                                            <div className='btn-reserve'>
-                                                <a className='btn-reserve'>Booking now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ModalBook 
+                                    setIsOpen={setIsOpen}
+                                    host={host}
+                                    roomDetail={roomDetail}
+                                    />
                             )}
                         </div>
                         <div className='call'>
