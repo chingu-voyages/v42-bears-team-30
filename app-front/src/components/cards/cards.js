@@ -35,7 +35,7 @@ function Cards() {
                 <h2>Our room availables</h2>
             </div>
             {rooms === null
-                ? <div className='text-verify'>Check your internet connection !</div>
+                ? <div className='text-verify'>Please wait ...</div>
                 : <div className="cards-rooms-available">
                     {rooms.map(room => (
                         //room.avalaible === true &&
