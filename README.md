@@ -1,6 +1,15 @@
-# Chingu-Hotel-BT-30 
-### Vision statement:
-- Provide the best room suggestion to our clients who wish to book accommodation with us :bulb:
+# Chingu-Hotel-BT-30 :hotel:
+### Vision statement: :bulb:
+- Provide the best room suggestion to our next chingu who wish to book accommodation with us :blush:
+
+### Contributors
+##### Thanks to
+- [Prami](https://github.com/pramitsingh0)
+- [Sobebarali](https://github.com/sobebarali)
+- [Mendes](https://github.com/Mendrika160)
+- [Fenofifaliana](https://github.com/Fullfifax)
+
+If you want to take a look of what we have done, click on :point_right: [Chingu-Hotel-BT-30](https://chingu-bt-30.onrender.com/) :point_left:
 
 ### Coding standard 
 #### Variable naming tips
