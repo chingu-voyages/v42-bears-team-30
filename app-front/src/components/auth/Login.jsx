@@ -3,11 +3,11 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import {loginUserRoute} from '../../utils/ApiRoute';
 import axios from 'axios';
-import {getUserId} from '../../store/redux'
-import { useDispatch } from "react-redux";
+
+
 const Login = ({setShowLogout}) => {
 
-    const dispatch = useDispatch();
+    
 
     const schema = Yup.object().shape({
         email: Yup.string()
@@ -33,7 +33,7 @@ const Login = ({setShowLogout}) => {
                 localStorage.setItem("user", JSON.stringify(data));
                 
                 //add user id in redux state
-                dispatch(getUserId(data.user))
+                
             }
         
             setShowLogout(true);

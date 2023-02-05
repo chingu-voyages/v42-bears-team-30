@@ -1,9 +1,9 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const roomSearchSlice = createSlice({
-    name: "roomAvalaible",
+    name: "roomAvailables",
     initialState : {
-        roomAvalaibleData :{
+        roomAvailableData :{
             "checkInDate":"",
             "checkOutDate": '',
             "guest" : ''
@@ -15,8 +15,10 @@ const roomSearchSlice = createSlice({
       
         getSearchInfo : (state,action) => {
             //{ type : "GET_USER_ID", payload : "userId"}
-            state.bookingData.userId = action.payload
-            console.log("state booking data :",action.payload)
+            state.roomAvailableData.checkInDate = new Date(action.payload.checkInDate)
+            state.roomAvailableData.checkOutDate = new Date(action.payload.checkOutDate)
+            state.roomAvailableData.guest = action.payload.guest
+            console.log("state booking data :",action.payload.guest)
             return state;
         }
         
@@ -29,7 +31,7 @@ export const { getSearchInfo } = roomSearchSlice.actions;
 export const store = configureStore({
     
     reducer : {
-        roomAvalaible : roomSearchSlice.reducer,
+        roomAvailables : roomSearchSlice.reducer,
 
     }
 })

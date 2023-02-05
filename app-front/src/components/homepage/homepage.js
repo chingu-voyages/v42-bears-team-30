@@ -5,10 +5,14 @@ import './homepage.css';
 import Cards from '../cards/cards';
 import TopCards from '../cards/topRatedCards/topRatedCards';
 import Footer from '../_partials/footer/footer';
+import { useNavigate } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import {getSearchInfo} from '../../store/redux'
 function Homepage() {
 
     const dispatch= useDispatch();
+    const navigate = useNavigate();
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [isBtnSearchDisable,setIsBtnSearchDisable] = useState(false)
@@ -32,12 +36,13 @@ function Homepage() {
         setInputCheckOutValue(event.target.value);
     }
 
-    const findAllRoomAvalaibles = () => {
+    const findAllRoomAvailables = () => {
         if(inputCheckInValue === '' || inputCheckOutValue === '' || inputValue === ''){
             setIsBtnSearchDisable(true)
         }else{
             setIsBtnSearchDisable(false)
-            dispatch(getSearchInfo({inputCheckInValue,inputCheckOutValue,inputValue}))
+            dispatch(getSearchInfo({"checkInDate":inputCheckInValue,"checkOutDate":inputCheckOutValue,"guest":inputValue}));
+            navigate('/available/rooms')
         }
 
     }
@@ -81,9 +86,13 @@ function Homepage() {
                             {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChangeGuestValue} required />}
                         </div>
                         <div className='btn-search-container'>
-                            <button className='btn-search'>
+                        <button 
+                            className="logo-link" 
+                            onClick={findAllRoomAvailables}
+                            disabled={isBtnSearchDisable} 
+                        >
                                 <img src={ searchButton } alt='search button' />
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

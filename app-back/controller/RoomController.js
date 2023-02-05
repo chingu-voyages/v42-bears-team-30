@@ -186,7 +186,7 @@ const getOneRoom = (req,res) => {
     }
 }
 
-const getAllRoomAvalaible = async (req,res) => {
+const getAllRoomAvailable = async (req,res) => {
     const { checkInDate, checkOutDate, guests } = req.query;
     
     try {
@@ -226,5 +226,5 @@ module.exports = {
     deleteRoom,
     goEditRoom,
     updateRoom,
-    getAllRoomAvalaible
+    getAllRoomAvailable
 }
