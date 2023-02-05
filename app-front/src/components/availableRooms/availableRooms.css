@@ -1,0 +1,4 @@
+.available-rooms .rooms-available .rooms-available-title h2,
+.available-rooms .rooms-available .cards-rooms-available:first-child {
+    display: none;
+}

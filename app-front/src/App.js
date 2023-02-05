@@ -7,6 +7,7 @@ import { Provider} from 'react-redux'
 import {store} from './store/redux'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import AvailableRooms from './components/availableRooms/availableRooms';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/room/:id' exact element={<DetailsPage />} />
           <Route path='/success-pay' element={<SuccessPay />} />
           <Route path='/cancel-pay' element={<CancelPay />} />
+          <Route path='/available/rooms' element={<AvailableRooms />} />
         </Routes>
       </Provider>
     </div>

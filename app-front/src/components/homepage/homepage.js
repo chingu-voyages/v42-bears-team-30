@@ -5,10 +5,6 @@ import './homepage.css';
 import Cards from '../cards/cards';
 import TopCards from '../cards/topRatedCards/topRatedCards';
 import Footer from '../_partials/footer/footer';
-import {findRoomAvalaible} from '../../utils/ApiRoute'
-import axios from 'axios'
-import { useDispatch } from 'react-redux';
-import {getSearchInfo} from '../../store/redux'
 
 function Homepage() {
 
@@ -72,27 +68,22 @@ function Homepage() {
                         <div className='check-in-container'>
                             <p>Check In</p>
                             {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
-                            {showInput && <input type="date" value={inputCheckInValue} onChange={handleChangeCheckInValue} />}
+                            {showInput && <input type="date" value={inputCheckInValue} onChange={handleChangeCheckInValue} required />}
                         </div>
                         <div className='check-out-container'>
                             <p>Check Out</p>
                             {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add date</div>}
-                            {showInput && <input type="date" value={inputCheckOutValue} onChange={handleChangeCheckOutValue} />}
+                            {showInput && <input type="date" value={inputCheckOutValue} onChange={handleChangeCheckOutValue} required />}
                         </div>
                         <div className='guests-container'>
                             <p>Guests</p>
                             {!showInput && <div className="calendar-text-add" onClick={handleClick}>Add guests</div>}
-                            {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChangeGuestValue} />}
+                            {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChangeGuestValue} required />}
                         </div>
                         <div className='btn-search-container'>
-                            <button 
-                                className='btn-search'
-                                onClick={findAllRoomAvalaibles}
-                                disabled={isBtnSearchDisable}
-
-                            >
+                            <button className='btn-search'>
                                 <img src={ searchButton } alt='search button' />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
