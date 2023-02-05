@@ -5,11 +5,17 @@ import './homepage.css';
 import Cards from '../cards/cards';
 import TopCards from '../cards/topRatedCards/topRatedCards';
 import Footer from '../_partials/footer/footer';
+import {findRoomAvalaible} from '../../utils/ApiRoute'
+import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import {getSearchInfo} from '../../store/redux'
 
 function Homepage() {
 
+    const dispatch= useDispatch();
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [isBtnSearchDisable,setIsBtnSearchDisable] = useState(false)
 
     const [inputCheckInValue, setInputCheckInValue] = useState('');
     const [inputCheckOutValue, setInputCheckOutValue] = useState('');
@@ -28,6 +34,16 @@ function Homepage() {
 
     const handleChangeCheckOutValue = (event) => {
         setInputCheckOutValue(event.target.value);
+    }
+
+    const findAllRoomAvalaibles = () => {
+        if(inputCheckInValue === '' || inputCheckOutValue === '' || inputValue === ''){
+            setIsBtnSearchDisable(true)
+        }else{
+            setIsBtnSearchDisable(false)
+            dispatch(getSearchInfo({inputCheckInValue,inputCheckOutValue,inputValue}))
+        }
+
     }
 
     return (
@@ -69,7 +85,12 @@ function Homepage() {
                             {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChangeGuestValue} />}
                         </div>
                         <div className='btn-search-container'>
-                            <button className='btn-search'>
+                            <button 
+                                className='btn-search'
+                                onClick={findAllRoomAvalaibles}
+                                disabled={isBtnSearchDisable}
+
+                            >
                                 <img src={ searchButton } alt='search button' />
                             </button>
                         </div>

@@ -2,11 +2,30 @@ import React,{useState} from 'react'
 import checkButton from '../../assets/icons/check.png'
 import axios from 'axios'
 import {checkoutStripe} from '../../utils/ApiRoute.js'
+
+
+import { useEffect } from 'react';
+import jwt_decode from "jwt-decode";
+
 const ModalBook = ({roomDetail,setIsOpen,host}) => {
+
+  
+  
 
     const [inputCheckInValue, setInputCheckInValue] = useState('');
     const [inputCheckOutValue, setInputCheckOutValue] = useState('');
     const [showInput, setShowInput] = useState(false);
+    const [isDisable,setIsDisable] = useState(false)
+
+    
+    useEffect(() => {
+      if(inputCheckInValue === '' || inputCheckOutValue === ''){
+        setIsDisable(true)
+      }else{
+        setIsDisable(false)
+      }
+
+    },[inputCheckInValue,inputCheckOutValue])
 
     const handleClick = () => {
         setShowInput(true);
@@ -20,14 +39,32 @@ const ModalBook = ({roomDetail,setIsOpen,host}) => {
         setInputCheckOutValue(event.target.value);
     }
 
-    const bookRoom = () => {
-        axios.post(checkoutStripe,{roomDetail})
+    const bookRoom =  () => {
+       
+        console.log('rents',roomDetail)
+        axios.post(checkoutStripe,roomDetail)
           .then(res => {
             if(res.data.url){
+              let user = JSON.parse(localStorage.getItem('user'))
+              
+              const decode = jwt_decode(user.token)
+              const bookingInfo = {
+                  "userId": decode.id,
+                  "roomId" : roomDetail._id,
+                  "checkInDate": inputCheckInValue,
+                  "checkOutDate": inputCheckOutValue
+
+                }
+              localStorage.setItem('booking',JSON.stringify(bookingInfo))
               window.location.href = res.data.url
+              
+              
             }
 
           })
+          .catch(err => {
+            console.log('error :',err.message)
+          }) 
 
     }
     return (
@@ -104,11 +141,13 @@ const ModalBook = ({roomDetail,setIsOpen,host}) => {
                 )}
                 <b>per day</b>
               </p>
-              <div className="btn-reserve">
-                <a className="btn-reserve"
+              <div className="">
+                <button 
+                    className="btn-reserve" 
                     onClick={bookRoom}
+                    disabled={isDisable}
                 >Booking now
-                </a>
+                </button>
               </div>
             </div>
           </div>

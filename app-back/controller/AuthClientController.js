@@ -41,7 +41,7 @@ const loginUserClient = (req, res) => {
         //return into the client side user
         return res.json({
           status: '200',
-          user: user.email,
+          user: user.id,
           message: 'login sucessfuly',
           token: createToken(user.id),
         });
