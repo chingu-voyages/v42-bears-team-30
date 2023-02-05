@@ -60,6 +60,11 @@ hr {
     justify-content: space-between;
 }
 
+.contact-links a {
+    color: #ffef00 !important;
+    font-weight: bold;
+}
+
 @media (width <= 1100px) {
     .footer-links {
         display: block;
