@@ -1,6 +1,6 @@
 # Chingu-Hotel-BT-30 :hotel:
 ### Vision statement: :bulb:
-- Provide the best room suggestion to our next chingu who wish to book accommodation with us :blush:
+- Provide the best room suggestion to our chingus who wish to book accommodation with us in the future :blush:
 
 ### Contributors
 ##### Thanks to
