@@ -1,4 +1,5 @@
 const Room = require("../model/Room");
+const Booking = require('../model/Booking')
 const {validationResult} = require('express-validator');
 const fs = require('fs')
 
@@ -185,6 +186,37 @@ const getOneRoom = (req,res) => {
     }
 }
 
+const getAllRoomAvailable = async (req,res) => {
+    const { checkInDate, checkOutDate, guests } = req.query;
+    
+    try {
+        
+
+        const bookedRooms = await Booking.find({
+            $and: [
+                { checkInDate: { $lt: checkOutDate } },
+                { checkOutDate: { $gt: checkInDate } },
+            ],
+        }); 
+        // Get the room IDs for all booked rooms
+        const bookedRoomIds = bookedRooms.map(booking => booking.roomId);
+
+        const availableRooms = await Room.find({
+            $and: [
+                { _id: { $nin: bookedRoomIds } },
+                { guest: { $gte: guests } },
+                { avalaible: true },
+            ],
+        });
+        
+        res.json({status: "201",data :availableRooms});
+
+        
+    } catch (error) {
+        res.json({status: "500",error : error.message})
+    }
+}
+
 module.exports = {
     getRoom,
     addRoom,
@@ -193,5 +225,6 @@ module.exports = {
     goToFormRoom,
     deleteRoom,
     goEditRoom,
-    updateRoom
+    updateRoom,
+    getAllRoomAvailable
 }

@@ -1,10 +1,15 @@
 const { isLoggedIn } = require('../middleware/auth');
 require("dotenv").config({ path: "./config/config.env" });
-const stripe = require('stripe')('sk_test_51MU9wQSA1jobDyLHXXs7nFPGJC78ar4n0lc5g0C3QeTzI9su5SFJKx2hs9IS5moKI1hrOj9x6m1HvYoYKlbPr8Tr00tV1prOn8');
-//const Stripe = require('stripe')
 
-require("dotenv").config({ path: "./config/config.env" });
-//const stripe = Stripe(process.env.TEST_STRIPE_KEY)
+// pragmi stripe
+//const stripe = require('stripe')('sk_test_51MU9wQSA1jobDyLHXXs7nFPGJC78ar4n0lc5g0C3QeTzI9su5SFJKx2hs9IS5moKI1hrOj9x6m1HvYoYKlbPr8Tr00tV1prOn8');
+
+// mendes stripe
+const stripe = require('stripe')('sk_test_51MXLvVHAHDp5fErF3PsHShNe1ZrTKkeN01EF10OfDbRQLszd3iAbqNidFZAMEmlYEEA6TRVgFpZwQYknGNPHTN8400dcaAyiCV');
+
+
+
+
 
 // Create new payment session
 const createCheckoutSession = async (req, res) => {
@@ -17,19 +22,19 @@ const createCheckoutSession = async (req, res) => {
             currency: "usd",
             // Product details
             product_data: {
-              name: req.body.roomNumber || 'hello',
-              description: req.body.description || 'world',
+              name: req.body.roomNumber,
+              description: req.body.description
+              
+              
             },
             // Product price
-            unit_amount: req.body.rent || 1000,
+            unit_amount: req.body.rent * 100,
           },
           quantity: 1,
-          adjustable_quantity: {
-            enabled: true
-          }
+          
         }
       ],
-      mode: 'payment',
+      
       success_url: `${process.env.FRONT_DOMAIN}/success-pay`, 
       cancel_url: `${process.env.FRONT_DOMAIN}/cancel-pay`
     });
@@ -39,6 +44,8 @@ const createCheckoutSession = async (req, res) => {
     res.status(500).json({ error: e.message })
   }
 }
+
+
 
 
 module.exports = createCheckoutSession;
