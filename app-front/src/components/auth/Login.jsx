@@ -4,7 +4,10 @@ import * as Yup from "yup";
 import {loginUserRoute} from '../../utils/ApiRoute';
 import axios from 'axios';
 
+
 const Login = ({setShowLogout}) => {
+
+    
 
     const schema = Yup.object().shape({
         email: Yup.string()
@@ -28,6 +31,9 @@ const Login = ({setShowLogout}) => {
             if(data.token){
                 delete data.status
                 localStorage.setItem("user", JSON.stringify(data));
+                
+                //add user id in redux state
+                
             }
         
             setShowLogout(true);

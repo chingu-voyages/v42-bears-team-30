@@ -19,3 +19,6 @@ GET http://localhost:5000/api/room
 
 ###
 GET http://localhost:5000/api/room/63d6470ad33976b65e8fdef7
+
+###
+GET http://localhost:5000/api/room/

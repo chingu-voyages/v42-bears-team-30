@@ -5,12 +5,17 @@ import './homepage.css';
 import Cards from '../cards/cards';
 import TopCards from '../cards/topRatedCards/topRatedCards';
 import Footer from '../_partials/footer/footer';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import {getSearchInfo} from '../../store/redux'
 function Homepage() {
 
+    const dispatch= useDispatch();
+    const navigate = useNavigate();
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [isBtnSearchDisable,setIsBtnSearchDisable] = useState(false)
 
     const [inputCheckInValue, setInputCheckInValue] = useState('');
     const [inputCheckOutValue, setInputCheckOutValue] = useState('');
@@ -29,6 +34,17 @@ function Homepage() {
 
     const handleChangeCheckOutValue = (event) => {
         setInputCheckOutValue(event.target.value);
+    }
+
+    const findAllRoomAvailables = () => {
+        if(inputCheckInValue === '' || inputCheckOutValue === '' || inputValue === ''){
+            setIsBtnSearchDisable(true)
+        }else{
+            setIsBtnSearchDisable(false)
+            dispatch(getSearchInfo({"checkInDate":inputCheckInValue,"checkOutDate":inputCheckOutValue,"guest":inputValue}));
+            navigate('/available/rooms')
+        }
+
     }
 
     return (
@@ -70,9 +86,13 @@ function Homepage() {
                             {showInput && <input type="number" min="1" max="10" value={inputValue} onChange={handleChangeGuestValue} required />}
                         </div>
                         <div className='btn-search-container'>
-                            <Link className="logo-link" to="/available/rooms">
+                        <button 
+                            className="logo-link" 
+                            onClick={findAllRoomAvailables}
+                            disabled={isBtnSearchDisable} 
+                        >
                                 <img src={ searchButton } alt='search button' />
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

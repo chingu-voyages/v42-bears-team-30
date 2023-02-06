@@ -2,6 +2,7 @@ const express = require("express");
 const apiRoute = require('./routes/apiRoute')
 const roomRoute = require('./routes/roomRoute')
 const userClientRoute = require('./routes/userclientRoute')
+const bookingRoute = require('./routes/bookingRoute')
 const authAdmin = require('./routes/authAdminRoute')
 const bodyParser = require('body-parser')
 const connectDB = require('./config/db')
@@ -43,6 +44,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Express session
+
 app.use(session({
   secret: process.env.SECRET_SESSION,
   resave: false,
@@ -82,6 +84,7 @@ app.use('/room',roomRoute);
 app.use('/client',userClientRoute)
 app.use('/api',apiRoute);
 app.use('/create-checkout-session', checkout);
+app.use('/api/book',bookingRoute)
 app.get('/',(req,res) => { 
   res.redirect('/room')
 })
