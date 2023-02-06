@@ -55,7 +55,7 @@
     margin-right: 2em;
 }
 
-.btn-search-container .btn-search {
+.btn-search-container button {
     background: none;
     border: none;
 	color: inherit;
@@ -63,7 +63,7 @@
     margin-top: 12px;
 }
 
-.btn-search-container .btn-search img {
+.btn-search-container button img {
     height: 65px;
     width: 65px;
 }
