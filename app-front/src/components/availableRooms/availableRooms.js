@@ -11,11 +11,11 @@ import {useSelector}  from 'react-redux'
 function AvailableRooms() {
     const {roomAvailableData} = useSelector((state) => state.roomAvailables)
     const [rooms,setRooms] = useState(null)
-    console.log('roomAvailable',roomAvailableData)
+    
     useEffect(() => {
         axios.get(`${findRoomAvailable}?checkInDate=${roomAvailableData.checkInDate}&checkOutDate=${roomAvailableData.checkOutDate}&guest=${roomAvailableData.guest}`)
             .then(res =>{
-                console.log('rooms', res)
+                
                 //set into the state rooms res
                 //setRooms(res.data)
             })
