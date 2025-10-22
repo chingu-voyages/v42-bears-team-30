@@ -85,6 +85,9 @@
 }
 
 @media (width <= 700px) {
+    .top-rated {
+        padding: 0;
+    }
     .top-rated-cards {
         flex-wrap: wrap;
     }

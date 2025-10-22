@@ -2,5 +2,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   margin: 0;
+}
+
+#root {
   overflow-x: hidden;
 }
